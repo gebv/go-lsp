@@ -1,0 +1,52 @@
+{
+    "$id": "/DeleteFile",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ChangeAnnotationIdentifier": {
+            "description": "An identifier to refer to a change annotation stored with a workspace edit.",
+            "type": "string"
+        },
+        "DeleteFileOptions": {
+            "description": "Delete file options",
+            "properties": {
+                "ignoreIfNotExists": {
+                    "description": "Ignore the operation if the file doesn't exist.",
+                    "type": "boolean"
+                },
+                "recursive": {
+                    "description": "Delete the content recursively if a folder is denoted.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        }
+    },
+    "description": "Delete file operation",
+    "properties": {
+        "annotationId": {
+            "$ref": "/DeleteFile#/definitions/ChangeAnnotationIdentifier",
+            "description": "An optional annotation identifier describing the operation."
+        },
+        "kind": {
+            "description": "A delete",
+            "enum": [
+                "delete"
+            ],
+            "type": "string"
+        },
+        "options": {
+            "$ref": "/DeleteFile#/definitions/DeleteFileOptions",
+            "description": "Delete options."
+        },
+        "uri": {
+            "$ref": "/DeleteFile#/definitions/DocumentUri",
+            "description": "The file to delete."
+        }
+    },
+    "type": "object"
+}
+

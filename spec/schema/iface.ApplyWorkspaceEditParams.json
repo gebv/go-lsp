@@ -1,0 +1,311 @@
+{
+    "$id": "/ApplyWorkspaceEditParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "AnnotatedTextEdit": {
+            "description": "A special text edit with an additional change annotation.",
+            "properties": {
+                "annotationId": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/ChangeAnnotationIdentifier",
+                    "description": "The actual identifier of the change annotation"
+                },
+                "newText": {
+                    "description": "The string to be inserted. For delete operations use an\nempty string.",
+                    "type": "string"
+                },
+                "range": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/Range",
+                    "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
+                }
+            },
+            "type": "object"
+        },
+        "ChangeAnnotation": {
+            "description": "Additional information that describes document changes.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable string which is rendered less prominent in\nthe user interface.",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "A human-readable string describing the actual change. The string\nis rendered prominent in the user interface.",
+                    "type": "string"
+                },
+                "needsConfirmation": {
+                    "description": "A flag which indicates that user confirmation is needed\nbefore applying the change.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ChangeAnnotationIdentifier": {
+            "description": "An identifier to refer to a change annotation stored with a workspace edit.",
+            "type": "string"
+        },
+        "CreateFile": {
+            "description": "Create file operation.",
+            "properties": {
+                "annotationId": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/ChangeAnnotationIdentifier",
+                    "description": "An optional annotation identifier describing the operation."
+                },
+                "kind": {
+                    "description": "A create",
+                    "enum": [
+                        "create"
+                    ],
+                    "type": "string"
+                },
+                "options": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/CreateFileOptions",
+                    "description": "Additional options"
+                },
+                "uri": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/DocumentUri",
+                    "description": "The resource to create."
+                }
+            },
+            "type": "object"
+        },
+        "CreateFileOptions": {
+            "description": "Options to create a file.",
+            "properties": {
+                "ignoreIfExists": {
+                    "description": "Ignore if exists.",
+                    "type": "boolean"
+                },
+                "overwrite": {
+                    "description": "Overwrite existing file. Overwrite wins over `ignoreIfExists`",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteFile": {
+            "description": "Delete file operation",
+            "properties": {
+                "annotationId": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/ChangeAnnotationIdentifier",
+                    "description": "An optional annotation identifier describing the operation."
+                },
+                "kind": {
+                    "description": "A delete",
+                    "enum": [
+                        "delete"
+                    ],
+                    "type": "string"
+                },
+                "options": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/DeleteFileOptions",
+                    "description": "Delete options."
+                },
+                "uri": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/DocumentUri",
+                    "description": "The file to delete."
+                }
+            },
+            "type": "object"
+        },
+        "DeleteFileOptions": {
+            "description": "Delete file options",
+            "properties": {
+                "ignoreIfNotExists": {
+                    "description": "Ignore the operation if the file doesn't exist.",
+                    "type": "boolean"
+                },
+                "recursive": {
+                    "description": "Delete the content recursively if a folder is denoted.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        },
+        "OptionalVersionedTextDocumentIdentifier": {
+            "description": "A text document identifier to optionally denote a specific version of a text document.\nThe OptionalVersionedTextDocumentIdentifier namespace provides helper functions to work with\n[OptionalVersionedTextDocumentIdentifier](#OptionalVersionedTextDocumentIdentifier) literals.",
+            "properties": {
+                "uri": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/DocumentUri",
+                    "description": "The text document's uri."
+                },
+                "version": {
+                    "description": "The version number of this document. If a versioned text document identifier\nis sent from the server to the client and the file is not open in the editor\n(the server has not received an open notification before) the server can send\n`null` to indicate that the version is unknown and the content on disk is the\ntruth (as specified with document content ownership).",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Position": {
+            "description": "Position in a text document expressed as zero-based line and character offset.\nThe offsets are based on a UTF-16 string representation. So a string of the form\n`a\ud801\udc00b` the character offset of the character `a` is 0, the character offset of `\ud801\udc00`\nis 1 and the character offset of b is 3 since `\ud801\udc00` is represented using two code\nunits in UTF-16.\n\nPositions are line end character agnostic. So you can not specify a position that\ndenotes `\\r|\\n` or `\\n|` where `|` represents the character offset.\nThe Position namespace provides helper functions to work with\n[Position](#Position) literals.",
+            "properties": {
+                "character": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/uinteger",
+                    "description": "Character offset on a line in a document (zero-based). Assuming that the line is\nrepresented as a string, the `character` value represents the gap between the\n`character` and `character + 1`.\n\nIf the character value is greater than the line length it defaults back to the\nline length."
+                },
+                "line": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/uinteger",
+                    "description": "Line position in a document (zero-based)."
+                }
+            },
+            "type": "object"
+        },
+        "Range": {
+            "description": "A range in a text document expressed as (zero-based) start and end positions.\n\nIf you want to specify a range that contains a line including the line ending\ncharacter(s) then use an end position denoting the start of the next line.\nFor example:\n```ts\n{\n    start: { line: 5, character: 23 }\n    end : { line 6, character : 0 }\n}\n```\nThe Range namespace provides helper functions to work with\n[Range](#Range) literals.",
+            "properties": {
+                "end": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/Position",
+                    "description": "The range's end position."
+                },
+                "start": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/Position",
+                    "description": "The range's start position"
+                }
+            },
+            "type": "object"
+        },
+        "RenameFile": {
+            "description": "Rename file operation",
+            "properties": {
+                "annotationId": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/ChangeAnnotationIdentifier",
+                    "description": "An optional annotation identifier describing the operation."
+                },
+                "kind": {
+                    "description": "A rename",
+                    "enum": [
+                        "rename"
+                    ],
+                    "type": "string"
+                },
+                "newUri": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/DocumentUri",
+                    "description": "The new location."
+                },
+                "oldUri": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/DocumentUri",
+                    "description": "The old (existing) location."
+                },
+                "options": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/RenameFileOptions",
+                    "description": "Rename options."
+                }
+            },
+            "type": "object"
+        },
+        "RenameFileOptions": {
+            "description": "Rename file options",
+            "properties": {
+                "ignoreIfExists": {
+                    "description": "Ignores if target exists.",
+                    "type": "boolean"
+                },
+                "overwrite": {
+                    "description": "Overwrite target if existing. Overwrite wins over `ignoreIfExists`",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "TextDocumentEdit": {
+            "description": "Describes textual changes on a text document. A TextDocumentEdit describes all changes\non a document version Si and after they are applied move the document to version Si+1.\nSo the creator of a TextDocumentEdit doesn't need to sort the array of edits or do any\nkind of ordering. However the edits must be non overlapping.\nThe TextDocumentEdit namespace provides helper function to create\nan edit that manipulates a text document.",
+            "properties": {
+                "edits": {
+                    "description": "The edits to be applied.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "/ApplyWorkspaceEditParams#/definitions/TextEdit"
+                            },
+                            {
+                                "$ref": "/ApplyWorkspaceEditParams#/definitions/AnnotatedTextEdit"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "textDocument": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/OptionalVersionedTextDocumentIdentifier",
+                    "description": "The text document to change."
+                }
+            },
+            "type": "object"
+        },
+        "TextEdit": {
+            "description": "A text edit applicable to a text document.\nThe TextEdit namespace provides helper function to create replace,\ninsert and delete edits more easily.",
+            "properties": {
+                "newText": {
+                    "description": "The string to be inserted. For delete operations use an\nempty string.",
+                    "type": "string"
+                },
+                "range": {
+                    "$ref": "/ApplyWorkspaceEditParams#/definitions/Range",
+                    "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
+                }
+            },
+            "type": "object"
+        },
+        "WorkspaceEdit": {
+            "description": "A workspace edit represents changes to many resources managed in the workspace. The edit\nshould either provide `changes` or `documentChanges`. If documentChanges are present\nthey are preferred over `changes` if the client can handle versioned document edits.",
+            "properties": {
+                "changeAnnotations": {
+                    "additionalProperties": {
+                        "$ref": "/ApplyWorkspaceEditParams#/definitions/ChangeAnnotation"
+                    },
+                    "description": "A map of change annotations that can be referenced in `AnnotatedTextEdit`s or create, rename and\ndelete file / folder operations.\n\nWhether clients honor this property depends on the client capability `workspace.changeAnnotationSupport`.",
+                    "type": "object"
+                },
+                "changes": {
+                    "additionalProperties": {
+                        "items": {
+                            "$ref": "/ApplyWorkspaceEditParams#/definitions/TextEdit"
+                        },
+                        "type": "array"
+                    },
+                    "description": "Holds changes to existing resources.",
+                    "type": "object"
+                },
+                "documentChanges": {
+                    "description": "Depending on the client capability `workspace.workspaceEdit.resourceOperations` document changes\nare either an array of `TextDocumentEdit`s to express changes to n different text documents\nwhere each text document edit addresses a specific version of a text document. Or it can contain\nabove `TextDocumentEdit`s mixed with create, rename and delete file / folder operations.\n\nWhether a client supports versioned document edits is expressed via\n`workspace.workspaceEdit.documentChanges` client capability.\n\nIf a client neither supports `documentChanges` nor `workspace.workspaceEdit.resourceOperations` then\nonly plain `TextEdit`s using the `changes` property are supported.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "/ApplyWorkspaceEditParams#/definitions/TextDocumentEdit"
+                            },
+                            {
+                                "$ref": "/ApplyWorkspaceEditParams#/definitions/CreateFile"
+                            },
+                            {
+                                "$ref": "/ApplyWorkspaceEditParams#/definitions/RenameFile"
+                            },
+                            {
+                                "$ref": "/ApplyWorkspaceEditParams#/definitions/DeleteFile"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "description": "The parameters passed via a apply workspace edit request.",
+    "properties": {
+        "edit": {
+            "$ref": "/ApplyWorkspaceEditParams#/definitions/WorkspaceEdit",
+            "description": "The edits to apply."
+        },
+        "label": {
+            "description": "An optional label of the workspace edit. This label is\npresented in the user interface for example on an undo\nstack to undo the workspace edit.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

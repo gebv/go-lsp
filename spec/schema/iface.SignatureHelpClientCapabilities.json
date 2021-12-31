@@ -1,0 +1,49 @@
+{
+    "$id": "/SignatureHelpClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Client Capabilities for a [SignatureHelpRequest](#SignatureHelpRequest).",
+    "properties": {
+        "contextSupport": {
+            "description": "The client supports to send additional context information for a\n`textDocument/signatureHelp` request. A client that opts into\ncontextSupport will also support the `retriggerCharacters` on\n`SignatureHelpOptions`.",
+            "type": "boolean"
+        },
+        "dynamicRegistration": {
+            "description": "Whether signature help supports dynamic registration.",
+            "type": "boolean"
+        },
+        "signatureInformation": {
+            "description": "The client supports the following `SignatureInformation`\nspecific properties.",
+            "properties": {
+                "activeParameterSupport": {
+                    "description": "The client support the `activeParameter` property on `SignatureInformation`\nliteral.",
+                    "type": "boolean"
+                },
+                "documentationFormat": {
+                    "description": "Client supports the follow content formats for the documentation\nproperty. The order describes the preferred format of the client.",
+                    "items": {
+                        "description": "Describes the content type that a client supports in various\nresult literals like `Hover`, `ParameterInfo` or `CompletionItem`.\n\nPlease note that `MarkupKinds` must not start with a `$`. This kinds\nare reserved for internal usage.",
+                        "enum": [
+                            "markdown",
+                            "plaintext"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "parameterInformation": {
+                    "description": "Client capabilities specific to parameter information.",
+                    "properties": {
+                        "labelOffsetSupport": {
+                            "description": "The client supports processing label offsets instead of a\nsimple label string.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}
+

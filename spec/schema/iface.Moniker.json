@@ -1,0 +1,47 @@
+{
+    "$id": "/Moniker",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "MonikerKind": {
+            "description": "The moniker kind.",
+            "enum": [
+                "export",
+                "import",
+                "local"
+            ],
+            "type": "string"
+        },
+        "UniquenessLevel": {
+            "description": "Moniker uniqueness level to define scope of the moniker.",
+            "enum": [
+                "document",
+                "global",
+                "group",
+                "project",
+                "scheme"
+            ],
+            "type": "string"
+        }
+    },
+    "description": "Moniker definition to match LSIF 0.5 moniker definition.",
+    "properties": {
+        "identifier": {
+            "description": "The identifier of the moniker. The value is opaque in LSIF however\nschema owners are allowed to define the structure if they want.",
+            "type": "string"
+        },
+        "kind": {
+            "$ref": "/Moniker#/definitions/MonikerKind",
+            "description": "The moniker kind if known."
+        },
+        "scheme": {
+            "description": "The scheme of the moniker. For example tsc or .Net",
+            "type": "string"
+        },
+        "unique": {
+            "$ref": "/Moniker#/definitions/UniquenessLevel",
+            "description": "The scope in which the moniker is unique"
+        }
+    },
+    "type": "object"
+}
+

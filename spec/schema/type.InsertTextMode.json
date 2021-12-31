@@ -1,0 +1,11 @@
+{
+    "$id": "/InsertTextMode",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "How whitespace and indentation is handled during completion\nitem insertion.",
+    "enum": [
+        1,
+        2
+    ],
+    "type": "number"
+}
+

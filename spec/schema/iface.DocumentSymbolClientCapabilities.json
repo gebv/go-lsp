@@ -1,0 +1,79 @@
+{
+    "$id": "/DocumentSymbolClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Client Capabilities for a [DocumentSymbolRequest](#DocumentSymbolRequest).",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether document symbol supports dynamic registration.",
+            "type": "boolean"
+        },
+        "hierarchicalDocumentSymbolSupport": {
+            "description": "The client support hierarchical document symbols.",
+            "type": "boolean"
+        },
+        "labelSupport": {
+            "description": "The client supports an additional label presented in the UI when\nregistering a document symbol provider.",
+            "type": "boolean"
+        },
+        "symbolKind": {
+            "description": "Specific capabilities for the `SymbolKind`.",
+            "properties": {
+                "valueSet": {
+                    "description": "The symbol kind values the client supports. When this\nproperty exists the client also guarantees that it will\nhandle values outside its set gracefully and falls back\nto a default value when unknown.\n\nIf this property is not present the client only supports\nthe symbol kinds from `File` to `Array` as defined in\nthe initial version of the protocol.",
+                    "items": {
+                        "description": "A symbol kind.",
+                        "enum": [
+                            1,
+                            10,
+                            11,
+                            12,
+                            13,
+                            14,
+                            15,
+                            16,
+                            17,
+                            18,
+                            19,
+                            2,
+                            20,
+                            21,
+                            22,
+                            23,
+                            24,
+                            25,
+                            26,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8,
+                            9
+                        ],
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "tagSupport": {
+            "description": "The client supports tags on `SymbolInformation`. Tags are supported on\n`DocumentSymbol` if `hierarchicalDocumentSymbolSupport` is set to true.\nClients supporting tags have to handle unknown tags gracefully.",
+            "properties": {
+                "valueSet": {
+                    "description": "The tags supported by the client.",
+                    "items": {
+                        "enum": [
+                            1
+                        ],
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}
+

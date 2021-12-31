@@ -1,0 +1,12 @@
+{
+    "$id": "/DidChangeWatchedFilesClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Did change watched files notification supports dynamic registration. Please note\nthat the current protocol doesn't support static configuration for file changes\nfrom the server side.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

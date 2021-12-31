@@ -1,0 +1,19 @@
+{
+    "$id": "/CodeDescription",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "URI": {
+            "description": "A tagging type for string properties that are actually URIs",
+            "type": "string"
+        }
+    },
+    "description": "Structure to capture a description for an error code.\nThe CodeDescription namespace provides functions to deal with descriptions for diagnostic codes.",
+    "properties": {
+        "href": {
+            "$ref": "/CodeDescription#/definitions/URI",
+            "description": "An URI to open with more information about the diagnostic error."
+        }
+    },
+    "type": "object"
+}
+

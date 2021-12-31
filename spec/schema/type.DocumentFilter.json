@@ -1,0 +1,59 @@
+{
+    "$id": "/DocumentFilter",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "anyOf": [
+        {
+            "properties": {
+                "language": {
+                    "description": "A language id, like `typescript`.",
+                    "type": "string"
+                },
+                "pattern": {
+                    "description": "A glob pattern, like `*.{ts,js}`.",
+                    "type": "string"
+                },
+                "scheme": {
+                    "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        {
+            "properties": {
+                "language": {
+                    "description": "A language id, like `typescript`.",
+                    "type": "string"
+                },
+                "pattern": {
+                    "description": "A glob pattern, like `*.{ts,js}`.",
+                    "type": "string"
+                },
+                "scheme": {
+                    "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        {
+            "properties": {
+                "language": {
+                    "description": "A language id, like `typescript`.",
+                    "type": "string"
+                },
+                "pattern": {
+                    "description": "A glob pattern, like `*.{ts,js}`.",
+                    "type": "string"
+                },
+                "scheme": {
+                    "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    ],
+    "description": "A document filter denotes a document by different properties like\nthe [language](#TextDocument.languageId), the [scheme](#Uri.scheme) of\nits resource, or a glob-pattern that is applied to the [path](#TextDocument.fileName).\n\nGlob patterns can have the following syntax:\n- `*` to match one or more characters in a path segment\n- `?` to match on one character in a path segment\n- `**` to match any number of path segments, including none\n- `{}` to group conditions (e.g. `**​/*.{ts,js}` matches all TypeScript and JavaScript files)\n- `[]` to declare a range of characters to match in a path segment (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)\n- `[!...]` to negate a range of characters to match in a path segment (e.g., `example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)\nThe DocumentFilter namespace provides helper functions to work with\n[DocumentFilter](#DocumentFilter) literals."
+}
+

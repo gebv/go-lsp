@@ -1,0 +1,273 @@
+{
+    "$id": "/CompletionList",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Command": {
+            "description": "Represents a reference to a command. Provides a title which\nwill be used to represent a command in the UI and, optionally,\nan array of arguments which will be passed to the command handler\nfunction when invoked.\nThe Command namespace provides helper functions to work with\n[Command](#Command) literals.",
+            "properties": {
+                "arguments": {
+                    "description": "Arguments that the command handler should be\ninvoked with.",
+                    "items": {},
+                    "type": "array"
+                },
+                "command": {
+                    "description": "The identifier of the actual command handler.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the command, like `save`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CompletionItem": {
+            "description": "A completion item represents a text snippet that is\nproposed to complete text that is being typed.\nThe CompletionItem namespace provides functions to deal with\ncompletion items.",
+            "properties": {
+                "additionalTextEdits": {
+                    "description": "An optional array of additional [text edits](#TextEdit) that are applied when\nselecting this completion. Edits must not overlap (including the same insert position)\nwith the main [edit](#CompletionItem.textEdit) nor with themselves.\n\nAdditional text edits should be used to change text unrelated to the current cursor position\n(for example adding an import statement at the top of the file if the completion item will\ninsert an unqualified type).",
+                    "items": {
+                        "$ref": "/CompletionList#/definitions/TextEdit"
+                    },
+                    "type": "array"
+                },
+                "command": {
+                    "$ref": "/CompletionList#/definitions/Command",
+                    "description": "An optional [command](#Command) that is executed *after* inserting this completion. *Note* that\nadditional modifications to the current document should be described with the\n[additionalTextEdits](#CompletionItem.additionalTextEdits)-property."
+                },
+                "commitCharacters": {
+                    "description": "An optional set of characters that when pressed while this completion is active will accept it first and\nthen type that character. *Note* that all commit characters should have `length=1` and that superfluous\ncharacters will be ignored.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "data": {
+                    "description": "A data entry field that is preserved on a completion item between\na [CompletionRequest](#CompletionRequest) and a [CompletionResolveRequest]\n(#CompletionResolveRequest)"
+                },
+                "deprecated": {
+                    "description": "Indicates if this item is deprecated.",
+                    "type": "boolean"
+                },
+                "detail": {
+                    "description": "A human-readable string with additional information\nabout this item, like type or symbol information.",
+                    "type": "string"
+                },
+                "documentation": {
+                    "anyOf": [
+                        {
+                            "$ref": "/CompletionList#/definitions/MarkupContent"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "A human-readable string that represents a doc-comment."
+                },
+                "filterText": {
+                    "description": "A string that should be used when filtering a set of\ncompletion items. When `falsy` the [label](#CompletionItem.label)\nis used.",
+                    "type": "string"
+                },
+                "insertText": {
+                    "description": "A string that should be inserted into a document when selecting\nthis completion. When `falsy` the [label](#CompletionItem.label)\nis used.\n\nThe `insertText` is subject to interpretation by the client side.\nSome tools might not take the string literally. For example\nVS Code when code complete is requested in this example `con<cursor position>`\nand a completion item with an `insertText` of `console` is provided it\nwill only insert `sole`. Therefore it is recommended to use `textEdit` instead\nsince it avoids additional client side interpretation.",
+                    "type": "string"
+                },
+                "insertTextFormat": {
+                    "$ref": "/CompletionList#/definitions/InsertTextFormat",
+                    "description": "The format of the insert text. The format applies to both the `insertText` property\nand the `newText` property of a provided `textEdit`. If omitted defaults to\n`InsertTextFormat.PlainText`."
+                },
+                "insertTextMode": {
+                    "$ref": "/CompletionList#/definitions/InsertTextMode",
+                    "description": "How whitespace and indentation is handled during completion\nitem insertion. If ignored the clients default value depends on\nthe `textDocument.completion.insertTextMode` client capability."
+                },
+                "kind": {
+                    "$ref": "/CompletionList#/definitions/CompletionItemKind",
+                    "description": "The kind of this completion item. Based of the kind\nan icon is chosen by the editor."
+                },
+                "label": {
+                    "description": "The label of this completion item. By default\nalso the text that is inserted when selecting\nthis completion.",
+                    "type": "string"
+                },
+                "preselect": {
+                    "description": "Select this item when showing.\n\n*Note* that only one completion item can be selected and that the\ntool / client decides which item that is. The rule is that the *first*\nitem of those that match best is selected.",
+                    "type": "boolean"
+                },
+                "sortText": {
+                    "description": "A string that should be used when comparing this item\nwith other items. When `falsy` the [label](#CompletionItem.label)\nis used.",
+                    "type": "string"
+                },
+                "tags": {
+                    "description": "Tags for this completion item.",
+                    "items": {
+                        "enum": [
+                            1
+                        ],
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "textEdit": {
+                    "anyOf": [
+                        {
+                            "$ref": "/CompletionList#/definitions/TextEdit"
+                        },
+                        {
+                            "$ref": "/CompletionList#/definitions/InsertReplaceEdit"
+                        }
+                    ],
+                    "description": "An [edit](#TextEdit) which is applied to a document when selecting\nthis completion. When an edit is provided the value of\n[insertText](#CompletionItem.insertText) is ignored.\n\nMost editors support two different operation when accepting a completion item. One is to insert a\ncompletion text and the other is to replace an existing text with a completion text. Since this can\nusually not predetermined by a server it can report both ranges. Clients need to signal support for\n`InsertReplaceEdits` via the `textDocument.completion.insertReplaceSupport` client capability\nproperty.\n\n*Note 1:* The text edit's range as well as both ranges from a insert replace edit must be a\n[single line] and they must contain the position at which completion has been requested.\n*Note 2:* If an `InsertReplaceEdit` is returned the edit's insert range must be a prefix of\nthe edit's replace range, that means it must be contained and starting at the same position."
+                }
+            },
+            "type": "object"
+        },
+        "CompletionItemKind": {
+            "description": "The kind of a completion entry.",
+            "enum": [
+                1,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                2,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "type": "number"
+        },
+        "InsertReplaceEdit": {
+            "description": "A special text edit to provide an insert and a replace operation.\nThe InsertReplaceEdit namespace provides functions to deal with insert / replace edits.",
+            "properties": {
+                "insert": {
+                    "$ref": "/CompletionList#/definitions/Range",
+                    "description": "The range if the insert is requested"
+                },
+                "newText": {
+                    "description": "The string to be inserted.",
+                    "type": "string"
+                },
+                "replace": {
+                    "$ref": "/CompletionList#/definitions/Range",
+                    "description": "The range if the replace is requested."
+                }
+            },
+            "type": "object"
+        },
+        "InsertTextFormat": {
+            "description": "Defines whether the insert text in a completion item should be interpreted as\nplain text or a snippet.",
+            "enum": [
+                1,
+                2
+            ],
+            "type": "number"
+        },
+        "InsertTextMode": {
+            "description": "How whitespace and indentation is handled during completion\nitem insertion.",
+            "enum": [
+                1,
+                2
+            ],
+            "type": "number"
+        },
+        "MarkupContent": {
+            "description": "A `MarkupContent` literal represents a string value which content is interpreted base on its\nkind flag. Currently the protocol supports `plaintext` and `markdown` as markup kinds.\n\nIf the kind is `markdown` then the value can contain fenced code blocks like in GitHub issues.\nSee https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting\n\nHere is an example how such a string can be constructed using JavaScript / TypeScript:\n```ts\nlet markdown: MarkdownContent = {\n kind: MarkupKind.Markdown,\nvalue: [\n\t'# Header',\n\t'Some text',\n\t'```typescript',\n\t'someCode();',\n\t'```'\n].join('\\n')\n};\n```\n\n*Please Note* that clients might sanitize the return markdown. A client could decide to\nremove HTML from the markdown to avoid script execution.",
+            "properties": {
+                "kind": {
+                    "$ref": "/CompletionList#/definitions/MarkupKind",
+                    "description": "The type of the Markup"
+                },
+                "value": {
+                    "description": "The content itself",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MarkupKind": {
+            "description": "Describes the content type that a client supports in various\nresult literals like `Hover`, `ParameterInfo` or `CompletionItem`.\n\nPlease note that `MarkupKinds` must not start with a `$`. This kinds\nare reserved for internal usage.",
+            "enum": [
+                "markdown",
+                "plaintext"
+            ],
+            "type": "string"
+        },
+        "Position": {
+            "description": "Position in a text document expressed as zero-based line and character offset.\nThe offsets are based on a UTF-16 string representation. So a string of the form\n`a\ud801\udc00b` the character offset of the character `a` is 0, the character offset of `\ud801\udc00`\nis 1 and the character offset of b is 3 since `\ud801\udc00` is represented using two code\nunits in UTF-16.\n\nPositions are line end character agnostic. So you can not specify a position that\ndenotes `\\r|\\n` or `\\n|` where `|` represents the character offset.\nThe Position namespace provides helper functions to work with\n[Position](#Position) literals.",
+            "properties": {
+                "character": {
+                    "$ref": "/CompletionList#/definitions/uinteger",
+                    "description": "Character offset on a line in a document (zero-based). Assuming that the line is\nrepresented as a string, the `character` value represents the gap between the\n`character` and `character + 1`.\n\nIf the character value is greater than the line length it defaults back to the\nline length."
+                },
+                "line": {
+                    "$ref": "/CompletionList#/definitions/uinteger",
+                    "description": "Line position in a document (zero-based)."
+                }
+            },
+            "type": "object"
+        },
+        "Range": {
+            "description": "A range in a text document expressed as (zero-based) start and end positions.\n\nIf you want to specify a range that contains a line including the line ending\ncharacter(s) then use an end position denoting the start of the next line.\nFor example:\n```ts\n{\n    start: { line: 5, character: 23 }\n    end : { line 6, character : 0 }\n}\n```\nThe Range namespace provides helper functions to work with\n[Range](#Range) literals.",
+            "properties": {
+                "end": {
+                    "$ref": "/CompletionList#/definitions/Position",
+                    "description": "The range's end position."
+                },
+                "start": {
+                    "$ref": "/CompletionList#/definitions/Position",
+                    "description": "The range's start position"
+                }
+            },
+            "type": "object"
+        },
+        "TextEdit": {
+            "description": "A text edit applicable to a text document.\nThe TextEdit namespace provides helper function to create replace,\ninsert and delete edits more easily.",
+            "properties": {
+                "newText": {
+                    "description": "The string to be inserted. For delete operations use an\nempty string.",
+                    "type": "string"
+                },
+                "range": {
+                    "$ref": "/CompletionList#/definitions/Range",
+                    "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
+                }
+            },
+            "type": "object"
+        },
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "description": "Represents a collection of [completion items](#CompletionItem) to be presented\nin the editor.\nThe CompletionList namespace provides functions to deal with\ncompletion lists.",
+    "properties": {
+        "isIncomplete": {
+            "description": "This list it not complete. Further typing results in recomputing this list.",
+            "type": "boolean"
+        },
+        "items": {
+            "description": "The completion items.",
+            "items": {
+                "$ref": "/CompletionList#/definitions/CompletionItem"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

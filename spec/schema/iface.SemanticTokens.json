@@ -1,0 +1,19 @@
+{
+    "$id": "/SemanticTokens",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "data": {
+            "description": "The actual tokens.",
+            "items": {
+                "type": "number"
+            },
+            "type": "array"
+        },
+        "resultId": {
+            "description": "An optional result id. If provided and clients support delta updating\nthe client will include the result id in the next semantic token request.\nA server can then instead of computing all semantic tokens again simply\nsend a delta.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

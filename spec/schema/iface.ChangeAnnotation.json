@@ -1,0 +1,21 @@
+{
+    "$id": "/ChangeAnnotation",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Additional information that describes document changes.",
+    "properties": {
+        "description": {
+            "description": "A human-readable string which is rendered less prominent in\nthe user interface.",
+            "type": "string"
+        },
+        "label": {
+            "description": "A human-readable string describing the actual change. The string\nis rendered prominent in the user interface.",
+            "type": "string"
+        },
+        "needsConfirmation": {
+            "description": "A flag which indicates that user confirmation is needed\nbefore applying the change.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

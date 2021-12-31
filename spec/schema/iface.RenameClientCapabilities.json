@@ -1,0 +1,32 @@
+{
+    "$id": "/RenameClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "PrepareSupportDefaultBehavior": {
+            "enum": [
+                1
+            ],
+            "type": "number"
+        }
+    },
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether rename supports dynamic registration.",
+            "type": "boolean"
+        },
+        "honorsChangeAnnotations": {
+            "description": "Whether th client honors the change annotations in\ntext edits and resource operations returned via the\nrename request's workspace edit by for example presenting\nthe workspace edit in the user interface and asking\nfor confirmation.",
+            "type": "boolean"
+        },
+        "prepareSupport": {
+            "description": "Client supports testing for validity of rename operations\nbefore execution.",
+            "type": "boolean"
+        },
+        "prepareSupportDefaultBehavior": {
+            "$ref": "/RenameClientCapabilities#/definitions/PrepareSupportDefaultBehavior",
+            "description": "Client supports the default behavior result.\n\nThe value indicates the default behavior used by the\nclient."
+        }
+    },
+    "type": "object"
+}
+

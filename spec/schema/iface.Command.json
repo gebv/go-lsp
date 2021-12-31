@@ -1,0 +1,22 @@
+{
+    "$id": "/Command",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Represents a reference to a command. Provides a title which\nwill be used to represent a command in the UI and, optionally,\nan array of arguments which will be passed to the command handler\nfunction when invoked.\nThe Command namespace provides helper functions to work with\n[Command](#Command) literals.",
+    "properties": {
+        "arguments": {
+            "description": "Arguments that the command handler should be\ninvoked with.",
+            "items": {},
+            "type": "array"
+        },
+        "command": {
+            "description": "The identifier of the actual command handler.",
+            "type": "string"
+        },
+        "title": {
+            "description": "Title of the command, like `save`.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

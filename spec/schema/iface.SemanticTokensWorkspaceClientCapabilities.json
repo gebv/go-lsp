@@ -1,0 +1,12 @@
+{
+    "$id": "/SemanticTokensWorkspaceClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "refreshSupport": {
+            "description": "Whether the client implementation supports a refresh request sent from\nthe server to the client.\n\nNote that this event is global and will force the client to refresh all\nsemantic tokens currently shown. It should be used with absolute care\nand is useful for situation where a server for example detect a project\nwide change that requires such a calculation.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

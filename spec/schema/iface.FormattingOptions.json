@@ -1,0 +1,42 @@
+{
+    "$id": "/FormattingOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": {
+        "type": [
+            "string",
+            "number",
+            "boolean"
+        ]
+    },
+    "definitions": {
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "description": "Value-object describing what options formatting should use.\nThe FormattingOptions namespace provides helper functions to work with\n[FormattingOptions](#FormattingOptions) literals.",
+    "properties": {
+        "insertFinalNewline": {
+            "description": "Insert a newline character at the end of the file if one does not exist.",
+            "type": "boolean"
+        },
+        "insertSpaces": {
+            "description": "Prefer spaces over tabs.",
+            "type": "boolean"
+        },
+        "tabSize": {
+            "$ref": "/FormattingOptions#/definitions/uinteger",
+            "description": "Size of a tab in spaces."
+        },
+        "trimFinalNewlines": {
+            "description": "Trim all newlines after the final newline at the end of the file.",
+            "type": "boolean"
+        },
+        "trimTrailingWhitespace": {
+            "description": "Trim trailing whitespaces on a line.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

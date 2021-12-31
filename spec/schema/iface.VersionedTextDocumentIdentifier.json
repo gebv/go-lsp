@@ -1,0 +1,27 @@
+{
+    "$id": "/VersionedTextDocumentIdentifier",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        },
+        "integer": {
+            "description": "Defines an integer in the range of -2^31 to 2^31 - 1.",
+            "type": "integer"
+        }
+    },
+    "description": "A text document identifier to denote a specific version of a text document.\nThe VersionedTextDocumentIdentifier namespace provides helper functions to work with\n[VersionedTextDocumentIdentifier](#VersionedTextDocumentIdentifier) literals.",
+    "properties": {
+        "uri": {
+            "$ref": "/VersionedTextDocumentIdentifier#/definitions/DocumentUri",
+            "description": "The text document's uri."
+        },
+        "version": {
+            "$ref": "/VersionedTextDocumentIdentifier#/definitions/integer",
+            "description": "The version number of this document."
+        }
+    },
+    "type": "object"
+}
+

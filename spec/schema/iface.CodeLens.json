@@ -1,0 +1,73 @@
+{
+    "$id": "/CodeLens",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Command": {
+            "description": "Represents a reference to a command. Provides a title which\nwill be used to represent a command in the UI and, optionally,\nan array of arguments which will be passed to the command handler\nfunction when invoked.\nThe Command namespace provides helper functions to work with\n[Command](#Command) literals.",
+            "properties": {
+                "arguments": {
+                    "description": "Arguments that the command handler should be\ninvoked with.",
+                    "items": {},
+                    "type": "array"
+                },
+                "command": {
+                    "description": "The identifier of the actual command handler.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the command, like `save`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Position": {
+            "description": "Position in a text document expressed as zero-based line and character offset.\nThe offsets are based on a UTF-16 string representation. So a string of the form\n`a\ud801\udc00b` the character offset of the character `a` is 0, the character offset of `\ud801\udc00`\nis 1 and the character offset of b is 3 since `\ud801\udc00` is represented using two code\nunits in UTF-16.\n\nPositions are line end character agnostic. So you can not specify a position that\ndenotes `\\r|\\n` or `\\n|` where `|` represents the character offset.\nThe Position namespace provides helper functions to work with\n[Position](#Position) literals.",
+            "properties": {
+                "character": {
+                    "$ref": "/CodeLens#/definitions/uinteger",
+                    "description": "Character offset on a line in a document (zero-based). Assuming that the line is\nrepresented as a string, the `character` value represents the gap between the\n`character` and `character + 1`.\n\nIf the character value is greater than the line length it defaults back to the\nline length."
+                },
+                "line": {
+                    "$ref": "/CodeLens#/definitions/uinteger",
+                    "description": "Line position in a document (zero-based)."
+                }
+            },
+            "type": "object"
+        },
+        "Range": {
+            "description": "A range in a text document expressed as (zero-based) start and end positions.\n\nIf you want to specify a range that contains a line including the line ending\ncharacter(s) then use an end position denoting the start of the next line.\nFor example:\n```ts\n{\n    start: { line: 5, character: 23 }\n    end : { line 6, character : 0 }\n}\n```\nThe Range namespace provides helper functions to work with\n[Range](#Range) literals.",
+            "properties": {
+                "end": {
+                    "$ref": "/CodeLens#/definitions/Position",
+                    "description": "The range's end position."
+                },
+                "start": {
+                    "$ref": "/CodeLens#/definitions/Position",
+                    "description": "The range's start position"
+                }
+            },
+            "type": "object"
+        },
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "description": "A code lens represents a [command](#Command) that should be shown along with\nsource text, like the number of references, a way to run tests, etc.\n\nA code lens is _unresolved_ when no command is associated to it. For performance\nreasons the creation of a code lens and resolving should be done to two stages.\nThe CodeLens namespace provides helper functions to work with\n[CodeLens](#CodeLens) literals.",
+    "properties": {
+        "command": {
+            "$ref": "/CodeLens#/definitions/Command",
+            "description": "The command this code lens represents."
+        },
+        "data": {
+            "description": "A data entry field that is preserved on a code lens item between\na [CodeLensRequest](#CodeLensRequest) and a [CodeLensResolveRequest]\n(#CodeLensResolveRequest)"
+        },
+        "range": {
+            "$ref": "/CodeLens#/definitions/Range",
+            "description": "The range in which this code lens is valid. Should only span a single line."
+        }
+    },
+    "type": "object"
+}
+

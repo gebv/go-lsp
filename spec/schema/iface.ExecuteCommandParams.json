@@ -1,0 +1,30 @@
+{
+    "$id": "/ExecuteCommandParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ProgressToken": {
+            "type": [
+                "string",
+                "number"
+            ]
+        }
+    },
+    "description": "The parameters of a [ExecuteCommandRequest](#ExecuteCommandRequest).",
+    "properties": {
+        "arguments": {
+            "description": "Arguments that the command should be invoked with.",
+            "items": {},
+            "type": "array"
+        },
+        "command": {
+            "description": "The identifier of the actual command handler.",
+            "type": "string"
+        },
+        "workDoneToken": {
+            "$ref": "/ExecuteCommandParams#/definitions/ProgressToken",
+            "description": "An optional token that a server can use to report work done progress."
+        }
+    },
+    "type": "object"
+}
+

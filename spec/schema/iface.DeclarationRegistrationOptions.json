@@ -1,0 +1,77 @@
+{
+    "$id": "/DeclarationRegistrationOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "documentSelector": {
+            "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+            "items": {
+                "anyOf": [
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "type": "array"
+        },
+        "id": {
+            "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+            "type": "string"
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

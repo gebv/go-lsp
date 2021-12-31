@@ -1,0 +1,17 @@
+{
+    "$id": "/DeleteFileOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Delete file options",
+    "properties": {
+        "ignoreIfNotExists": {
+            "description": "Ignore the operation if the file doesn't exist.",
+            "type": "boolean"
+        },
+        "recursive": {
+            "description": "Delete the content recursively if a folder is denoted.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

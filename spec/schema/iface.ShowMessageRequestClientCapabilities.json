@@ -1,0 +1,19 @@
+{
+    "$id": "/ShowMessageRequestClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Show message request client capabilities",
+    "properties": {
+        "messageActionItem": {
+            "description": "Capabilities specific to the `MessageActionItem` type.",
+            "properties": {
+                "additionalPropertiesSupport": {
+                    "description": "Whether the client supports additional attributes which\nare preserved and send back to the server in the\nrequest's response.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}
+

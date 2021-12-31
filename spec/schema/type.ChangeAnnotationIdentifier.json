@@ -1,0 +1,7 @@
+{
+    "$id": "/ChangeAnnotationIdentifier",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "An identifier to refer to a change annotation stored with a workspace edit.",
+    "type": "string"
+}
+

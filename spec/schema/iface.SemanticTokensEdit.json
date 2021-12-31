@@ -1,0 +1,29 @@
+{
+    "$id": "/SemanticTokensEdit",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "properties": {
+        "data": {
+            "description": "The elements to insert.",
+            "items": {
+                "type": "number"
+            },
+            "type": "array"
+        },
+        "deleteCount": {
+            "$ref": "/SemanticTokensEdit#/definitions/uinteger",
+            "description": "The count of elements to remove."
+        },
+        "start": {
+            "$ref": "/SemanticTokensEdit#/definitions/uinteger",
+            "description": "The start offset of the edit."
+        }
+    },
+    "type": "object"
+}
+

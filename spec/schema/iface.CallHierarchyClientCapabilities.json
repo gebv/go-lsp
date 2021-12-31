@@ -1,0 +1,12 @@
+{
+    "$id": "/CallHierarchyClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether implementation supports dynamic registration. If this is set to `true`\nthe client supports the new `(TextDocumentRegistrationOptions & StaticRegistrationOptions)`\nreturn value for the corresponding server capability as well.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

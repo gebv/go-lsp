@@ -1,0 +1,12 @@
+{
+    "$id": "/FileChangeType",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The file event type",
+    "enum": [
+        1,
+        2,
+        3
+    ],
+    "type": "number"
+}
+

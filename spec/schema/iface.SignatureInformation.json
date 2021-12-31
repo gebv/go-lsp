@@ -1,0 +1,101 @@
+{
+    "$id": "/SignatureInformation",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "MarkupContent": {
+            "description": "A `MarkupContent` literal represents a string value which content is interpreted base on its\nkind flag. Currently the protocol supports `plaintext` and `markdown` as markup kinds.\n\nIf the kind is `markdown` then the value can contain fenced code blocks like in GitHub issues.\nSee https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting\n\nHere is an example how such a string can be constructed using JavaScript / TypeScript:\n```ts\nlet markdown: MarkdownContent = {\n kind: MarkupKind.Markdown,\nvalue: [\n\t'# Header',\n\t'Some text',\n\t'```typescript',\n\t'someCode();',\n\t'```'\n].join('\\n')\n};\n```\n\n*Please Note* that clients might sanitize the return markdown. A client could decide to\nremove HTML from the markdown to avoid script execution.",
+            "properties": {
+                "kind": {
+                    "$ref": "/SignatureInformation#/definitions/MarkupKind",
+                    "description": "The type of the Markup"
+                },
+                "value": {
+                    "description": "The content itself",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MarkupKind": {
+            "description": "Describes the content type that a client supports in various\nresult literals like `Hover`, `ParameterInfo` or `CompletionItem`.\n\nPlease note that `MarkupKinds` must not start with a `$`. This kinds\nare reserved for internal usage.",
+            "enum": [
+                "markdown",
+                "plaintext"
+            ],
+            "type": "string"
+        },
+        "ParameterInformation": {
+            "description": "Represents a parameter of a callable-signature. A parameter can\nhave a label and a doc-comment.\nThe ParameterInformation namespace provides helper functions to work with\n[ParameterInformation](#ParameterInformation) literals.",
+            "properties": {
+                "documentation": {
+                    "anyOf": [
+                        {
+                            "$ref": "/SignatureInformation#/definitions/MarkupContent"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The human-readable doc-comment of this signature. Will be shown\nin the UI but can be omitted."
+                },
+                "label": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The label of this parameter information.\n\nEither a string or an inclusive start and exclusive end offsets within its containing\nsignature label. (see SignatureInformation.label). The offsets are based on a UTF-16\nstring representation as `Position` and `Range` does.\n\n*Note*: a label of type string should be a substring of its containing signature label.\nIts intended use case is to highlight the parameter label part in the `SignatureInformation.label`."
+                }
+            },
+            "type": "object"
+        },
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "description": "Represents the signature of something callable. A signature\ncan have a label, like a function-name, a doc-comment, and\na set of parameters.\nThe SignatureInformation namespace provides helper functions to work with\n[SignatureInformation](#SignatureInformation) literals.",
+    "properties": {
+        "activeParameter": {
+            "$ref": "/SignatureInformation#/definitions/uinteger",
+            "description": "The index of the active parameter.\n\nIf provided, this is used in place of `SignatureHelp.activeParameter`."
+        },
+        "documentation": {
+            "anyOf": [
+                {
+                    "$ref": "/SignatureInformation#/definitions/MarkupContent"
+                },
+                {
+                    "type": "string"
+                }
+            ],
+            "description": "The human-readable doc-comment of this signature. Will be shown\nin the UI but can be omitted."
+        },
+        "label": {
+            "description": "The label of this signature. Will be shown in\nthe UI.",
+            "type": "string"
+        },
+        "parameters": {
+            "description": "The parameters of this signature.",
+            "items": {
+                "$ref": "/SignatureInformation#/definitions/ParameterInformation"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

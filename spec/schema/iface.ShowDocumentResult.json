@@ -1,0 +1,13 @@
+{
+    "$id": "/ShowDocumentResult",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The result of an show document request.",
+    "properties": {
+        "success": {
+            "description": "A boolean indicating if the show was successful.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,20 @@
+{
+    "$id": "/DocumentOnTypeFormattingOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Provider options for a [DocumentOnTypeFormattingRequest](#DocumentOnTypeFormattingRequest).",
+    "properties": {
+        "firstTriggerCharacter": {
+            "description": "A character on which formatting should be triggered, like `}`.",
+            "type": "string"
+        },
+        "moreTriggerCharacter": {
+            "description": "More trigger characters.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

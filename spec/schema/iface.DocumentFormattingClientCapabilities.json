@@ -1,0 +1,13 @@
+{
+    "$id": "/DocumentFormattingClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Client capabilities of a [DocumentFormattingRequest](#DocumentFormattingRequest).",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether formatting supports dynamic registration.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

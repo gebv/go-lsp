@@ -1,0 +1,121 @@
+{
+    "$id": "/SymbolInformation",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        },
+        "Location": {
+            "description": "Represents a location inside a resource, such as a line\ninside a text file.\nThe Location namespace provides helper functions to work with\n[Location](#Location) literals.",
+            "properties": {
+                "range": {
+                    "$ref": "/SymbolInformation#/definitions/Range"
+                },
+                "uri": {
+                    "$ref": "/SymbolInformation#/definitions/DocumentUri"
+                }
+            },
+            "type": "object"
+        },
+        "Position": {
+            "description": "Position in a text document expressed as zero-based line and character offset.\nThe offsets are based on a UTF-16 string representation. So a string of the form\n`a\ud801\udc00b` the character offset of the character `a` is 0, the character offset of `\ud801\udc00`\nis 1 and the character offset of b is 3 since `\ud801\udc00` is represented using two code\nunits in UTF-16.\n\nPositions are line end character agnostic. So you can not specify a position that\ndenotes `\\r|\\n` or `\\n|` where `|` represents the character offset.\nThe Position namespace provides helper functions to work with\n[Position](#Position) literals.",
+            "properties": {
+                "character": {
+                    "$ref": "/SymbolInformation#/definitions/uinteger",
+                    "description": "Character offset on a line in a document (zero-based). Assuming that the line is\nrepresented as a string, the `character` value represents the gap between the\n`character` and `character + 1`.\n\nIf the character value is greater than the line length it defaults back to the\nline length."
+                },
+                "line": {
+                    "$ref": "/SymbolInformation#/definitions/uinteger",
+                    "description": "Line position in a document (zero-based)."
+                }
+            },
+            "type": "object"
+        },
+        "Range": {
+            "description": "A range in a text document expressed as (zero-based) start and end positions.\n\nIf you want to specify a range that contains a line including the line ending\ncharacter(s) then use an end position denoting the start of the next line.\nFor example:\n```ts\n{\n    start: { line: 5, character: 23 }\n    end : { line 6, character : 0 }\n}\n```\nThe Range namespace provides helper functions to work with\n[Range](#Range) literals.",
+            "properties": {
+                "end": {
+                    "$ref": "/SymbolInformation#/definitions/Position",
+                    "description": "The range's end position."
+                },
+                "start": {
+                    "$ref": "/SymbolInformation#/definitions/Position",
+                    "description": "The range's start position"
+                }
+            },
+            "type": "object"
+        },
+        "SymbolKind": {
+            "description": "A symbol kind.",
+            "enum": [
+                1,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                2,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "type": "number"
+        },
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "description": "Represents information about programming constructs like variables, classes,\ninterfaces etc.",
+    "properties": {
+        "containerName": {
+            "description": "The name of the symbol containing this symbol. This information is for\nuser interface purposes (e.g. to render a qualifier in the user interface\nif necessary). It can't be used to re-infer a hierarchy for the document\nsymbols.",
+            "type": "string"
+        },
+        "deprecated": {
+            "description": "Indicates if this symbol is deprecated.",
+            "type": "boolean"
+        },
+        "kind": {
+            "$ref": "/SymbolInformation#/definitions/SymbolKind",
+            "description": "The kind of this symbol."
+        },
+        "location": {
+            "$ref": "/SymbolInformation#/definitions/Location",
+            "description": "The location of this symbol. The location's range is used by a tool\nto reveal the location in the editor. If the symbol is selected in the\ntool the range's start information is used to position the cursor. So\nthe range usually spans more than the actual symbol's name and does\nnormally include thinks like visibility modifiers.\n\nThe range doesn't have to denote a node range in the sense of a abstract\nsyntax tree. It can therefore not be used to re-construct a hierarchy of\nthe symbols."
+        },
+        "name": {
+            "description": "The name of this symbol.",
+            "type": "string"
+        },
+        "tags": {
+            "description": "Tags for this completion item.",
+            "items": {
+                "enum": [
+                    1
+                ],
+                "type": "number"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

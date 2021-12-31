@@ -1,0 +1,12 @@
+{
+    "$id": "/DocumentRangeFormattingOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Provider options for a [DocumentRangeFormattingRequest](#DocumentRangeFormattingRequest).",
+    "properties": {
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

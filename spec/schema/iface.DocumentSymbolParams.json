@@ -1,0 +1,43 @@
+{
+    "$id": "/DocumentSymbolParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        },
+        "ProgressToken": {
+            "type": [
+                "string",
+                "number"
+            ]
+        },
+        "TextDocumentIdentifier": {
+            "description": "A literal to identify a text document in the client.\nThe TextDocumentIdentifier namespace provides helper functions to work with\n[TextDocumentIdentifier](#TextDocumentIdentifier) literals.",
+            "properties": {
+                "uri": {
+                    "$ref": "/DocumentSymbolParams#/definitions/DocumentUri",
+                    "description": "The text document's uri."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "description": "Parameters for a [DocumentSymbolRequest](#DocumentSymbolRequest).",
+    "properties": {
+        "partialResultToken": {
+            "$ref": "/DocumentSymbolParams#/definitions/ProgressToken",
+            "description": "An optional token that a server can use to report partial results (e.g. streaming) to\nthe client."
+        },
+        "textDocument": {
+            "$ref": "/DocumentSymbolParams#/definitions/TextDocumentIdentifier",
+            "description": "The text document."
+        },
+        "workDoneToken": {
+            "$ref": "/DocumentSymbolParams#/definitions/ProgressToken",
+            "description": "An optional token that a server can use to report work done progress."
+        }
+    },
+    "type": "object"
+}
+

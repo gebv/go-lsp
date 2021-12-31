@@ -1,0 +1,13 @@
+{
+    "$id": "/DiagnosticSeverity",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The diagnostic's severity.",
+    "enum": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "type": "number"
+}
+

@@ -1,0 +1,20 @@
+{
+    "$id": "/WorkDoneProgressParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ProgressToken": {
+            "type": [
+                "string",
+                "number"
+            ]
+        }
+    },
+    "properties": {
+        "workDoneToken": {
+            "$ref": "/WorkDoneProgressParams#/definitions/ProgressToken",
+            "description": "An optional token that a server can use to report work done progress."
+        }
+    },
+    "type": "object"
+}
+

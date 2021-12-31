@@ -1,0 +1,13 @@
+{
+    "$id": "/ShowDocumentClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Client capabilities for the show document request.",
+    "properties": {
+        "support": {
+            "description": "The client has support for the show document\nrequest.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

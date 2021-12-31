@@ -1,0 +1,31 @@
+{
+    "$id": "/Color",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "decimal": {
+            "description": "Defines a decimal number. Since decimal numbers are very\nrare in the language server specification we denote the\nexact range with every decimal using the mathematics\ninterval notations (e.g. [0, 1] denotes all decimals d with\n0 <= d <= 1.",
+            "type": "number"
+        }
+    },
+    "description": "Represents a color in RGBA space.\nThe Color namespace provides helper functions to work with\n[Color](#Color) literals.",
+    "properties": {
+        "alpha": {
+            "$ref": "/Color#/definitions/decimal",
+            "description": "The alpha component of this color in the range [0-1]."
+        },
+        "blue": {
+            "$ref": "/Color#/definitions/decimal",
+            "description": "The blue component of this color in the range [0-1]."
+        },
+        "green": {
+            "$ref": "/Color#/definitions/decimal",
+            "description": "The green component of this color in the range [0-1]."
+        },
+        "red": {
+            "$ref": "/Color#/definitions/decimal",
+            "description": "The red component of this color in the range [0-1]."
+        }
+    },
+    "type": "object"
+}
+

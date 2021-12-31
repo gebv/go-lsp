@@ -1,0 +1,47 @@
+{
+    "$id": "/GeneralClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "MarkdownClientCapabilities": {
+            "description": "Client capabilities specific to the used markdown parser.",
+            "properties": {
+                "parser": {
+                    "description": "The name of the parser.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version of the parser.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RegularExpressionsClientCapabilities": {
+            "description": "Client capabilities specific to regular expressions.",
+            "properties": {
+                "engine": {
+                    "description": "The engine's name.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The engine's version.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "description": "General client capabilities.",
+    "properties": {
+        "markdown": {
+            "$ref": "/GeneralClientCapabilities#/definitions/MarkdownClientCapabilities",
+            "description": "Client capabilities specific to the client's markdown parser."
+        },
+        "regularExpressions": {
+            "$ref": "/GeneralClientCapabilities#/definitions/RegularExpressionsClientCapabilities",
+            "description": "Client capabilities specific to regular expressions."
+        }
+    },
+    "type": "object"
+}
+

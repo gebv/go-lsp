@@ -1,0 +1,131 @@
+{
+    "$id": "/SemanticTokensRegistrationOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "SemanticTokensLegend": {
+            "properties": {
+                "tokenModifiers": {
+                    "description": "The token modifiers a server uses.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "tokenTypes": {
+                    "description": "The token types a server uses.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "documentSelector": {
+            "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+            "items": {
+                "anyOf": [
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "type": "array"
+        },
+        "full": {
+            "anyOf": [
+                {
+                    "properties": {
+                        "delta": {
+                            "description": "The server supports deltas for full documents.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                {
+                    "type": "boolean"
+                }
+            ],
+            "description": "Server supports providing semantic tokens for a full document."
+        },
+        "id": {
+            "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+            "type": "string"
+        },
+        "legend": {
+            "$ref": "/SemanticTokensRegistrationOptions#/definitions/SemanticTokensLegend",
+            "description": "The legend used by the server"
+        },
+        "range": {
+            "anyOf": [
+                {
+                    "properties": {},
+                    "type": "object"
+                },
+                {
+                    "type": "boolean"
+                }
+            ],
+            "description": "Server supports providing semantic tokens for a specific range\nof a document."
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

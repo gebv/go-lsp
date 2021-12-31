@@ -1,0 +1,17 @@
+{
+    "$id": "/DocumentLinkClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The client capabilities of a [DocumentLinkRequest](#DocumentLinkRequest).",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether document link supports dynamic registration.",
+            "type": "boolean"
+        },
+        "tooltipSupport": {
+            "description": "Whether the client support the `tooltip` property on `DocumentLink`.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

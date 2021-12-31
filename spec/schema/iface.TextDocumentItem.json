@@ -1,0 +1,35 @@
+{
+    "$id": "/TextDocumentItem",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        },
+        "integer": {
+            "description": "Defines an integer in the range of -2^31 to 2^31 - 1.",
+            "type": "integer"
+        }
+    },
+    "description": "An item to transfer a text document from the client to the\nserver.\nThe TextDocumentItem namespace provides helper functions to work with\n[TextDocumentItem](#TextDocumentItem) literals.",
+    "properties": {
+        "languageId": {
+            "description": "The text document's language identifier",
+            "type": "string"
+        },
+        "text": {
+            "description": "The content of the opened text document.",
+            "type": "string"
+        },
+        "uri": {
+            "$ref": "/TextDocumentItem#/definitions/DocumentUri",
+            "description": "The text document's uri."
+        },
+        "version": {
+            "$ref": "/TextDocumentItem#/definitions/integer",
+            "description": "The version number of this document (it will increase after each\nchange, including undo/redo)."
+        }
+    },
+    "type": "object"
+}
+

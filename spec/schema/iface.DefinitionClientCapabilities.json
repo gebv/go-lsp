@@ -1,0 +1,17 @@
+{
+    "$id": "/DefinitionClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Client Capabilities for a [DefinitionRequest](#DefinitionRequest).",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether definition supports dynamic registration.",
+            "type": "boolean"
+        },
+        "linkSupport": {
+            "description": "The client supports additional metadata in the form of definition links.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

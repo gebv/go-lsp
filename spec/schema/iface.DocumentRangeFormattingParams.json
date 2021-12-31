@@ -1,0 +1,112 @@
+{
+    "$id": "/DocumentRangeFormattingParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        },
+        "FormattingOptions": {
+            "additionalProperties": {
+                "type": [
+                    "string",
+                    "number",
+                    "boolean"
+                ]
+            },
+            "description": "Value-object describing what options formatting should use.\nThe FormattingOptions namespace provides helper functions to work with\n[FormattingOptions](#FormattingOptions) literals.",
+            "properties": {
+                "insertFinalNewline": {
+                    "description": "Insert a newline character at the end of the file if one does not exist.",
+                    "type": "boolean"
+                },
+                "insertSpaces": {
+                    "description": "Prefer spaces over tabs.",
+                    "type": "boolean"
+                },
+                "tabSize": {
+                    "$ref": "/DocumentRangeFormattingParams#/definitions/uinteger",
+                    "description": "Size of a tab in spaces."
+                },
+                "trimFinalNewlines": {
+                    "description": "Trim all newlines after the final newline at the end of the file.",
+                    "type": "boolean"
+                },
+                "trimTrailingWhitespace": {
+                    "description": "Trim trailing whitespaces on a line.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "Position": {
+            "description": "Position in a text document expressed as zero-based line and character offset.\nThe offsets are based on a UTF-16 string representation. So a string of the form\n`a\ud801\udc00b` the character offset of the character `a` is 0, the character offset of `\ud801\udc00`\nis 1 and the character offset of b is 3 since `\ud801\udc00` is represented using two code\nunits in UTF-16.\n\nPositions are line end character agnostic. So you can not specify a position that\ndenotes `\\r|\\n` or `\\n|` where `|` represents the character offset.\nThe Position namespace provides helper functions to work with\n[Position](#Position) literals.",
+            "properties": {
+                "character": {
+                    "$ref": "/DocumentRangeFormattingParams#/definitions/uinteger",
+                    "description": "Character offset on a line in a document (zero-based). Assuming that the line is\nrepresented as a string, the `character` value represents the gap between the\n`character` and `character + 1`.\n\nIf the character value is greater than the line length it defaults back to the\nline length."
+                },
+                "line": {
+                    "$ref": "/DocumentRangeFormattingParams#/definitions/uinteger",
+                    "description": "Line position in a document (zero-based)."
+                }
+            },
+            "type": "object"
+        },
+        "ProgressToken": {
+            "type": [
+                "string",
+                "number"
+            ]
+        },
+        "Range": {
+            "description": "A range in a text document expressed as (zero-based) start and end positions.\n\nIf you want to specify a range that contains a line including the line ending\ncharacter(s) then use an end position denoting the start of the next line.\nFor example:\n```ts\n{\n    start: { line: 5, character: 23 }\n    end : { line 6, character : 0 }\n}\n```\nThe Range namespace provides helper functions to work with\n[Range](#Range) literals.",
+            "properties": {
+                "end": {
+                    "$ref": "/DocumentRangeFormattingParams#/definitions/Position",
+                    "description": "The range's end position."
+                },
+                "start": {
+                    "$ref": "/DocumentRangeFormattingParams#/definitions/Position",
+                    "description": "The range's start position"
+                }
+            },
+            "type": "object"
+        },
+        "TextDocumentIdentifier": {
+            "description": "A literal to identify a text document in the client.\nThe TextDocumentIdentifier namespace provides helper functions to work with\n[TextDocumentIdentifier](#TextDocumentIdentifier) literals.",
+            "properties": {
+                "uri": {
+                    "$ref": "/DocumentRangeFormattingParams#/definitions/DocumentUri",
+                    "description": "The text document's uri."
+                }
+            },
+            "type": "object"
+        },
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "description": "The parameters of a [DocumentRangeFormattingRequest](#DocumentRangeFormattingRequest).",
+    "properties": {
+        "options": {
+            "$ref": "/DocumentRangeFormattingParams#/definitions/FormattingOptions",
+            "description": "The format options"
+        },
+        "range": {
+            "$ref": "/DocumentRangeFormattingParams#/definitions/Range",
+            "description": "The range to format"
+        },
+        "textDocument": {
+            "$ref": "/DocumentRangeFormattingParams#/definitions/TextDocumentIdentifier",
+            "description": "The document to format."
+        },
+        "workDoneToken": {
+            "$ref": "/DocumentRangeFormattingParams#/definitions/ProgressToken",
+            "description": "An optional token that a server can use to report work done progress."
+        }
+    },
+    "type": "object"
+}
+

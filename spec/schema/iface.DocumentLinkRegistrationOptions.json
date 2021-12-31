@@ -1,0 +1,78 @@
+{
+    "$id": "/DocumentLinkRegistrationOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Registration options for a [DocumentLinkRequest](#DocumentLinkRequest).",
+    "properties": {
+        "documentSelector": {
+            "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+            "items": {
+                "anyOf": [
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "type": "array"
+        },
+        "resolveProvider": {
+            "description": "Document links have a resolve provider as well.",
+            "type": "boolean"
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

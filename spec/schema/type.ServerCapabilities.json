@@ -1,0 +1,1620 @@
+{
+    "$id": "/ServerCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "allOf": [
+        {
+            "$ref": "/ServerCapabilities#/definitions/_ServerCapabilities<T>"
+        },
+        {
+            "$ref": "/ServerCapabilities#/definitions/WorkspaceFoldersServerCapabilities"
+        }
+    ],
+    "definitions": {
+        "CallHierarchyOptions": {
+            "description": "Call hierarchy options used during static registration.",
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "CallHierarchyRegistrationOptions": {
+            "description": "Call hierarchy options used during static or dynamic registration.",
+            "properties": {
+                "documentSelector": {
+                    "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+                    "type": "string"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "CodeActionOptions": {
+            "description": "Provider options for a [CodeActionRequest](#CodeActionRequest).",
+            "properties": {
+                "codeActionKinds": {
+                    "description": "CodeActionKinds that this server may return.\n\nThe list of kinds may be generic, such as `CodeActionKind.Refactor`, or the server\nmay list out every specific kind they provide.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "resolveProvider": {
+                    "description": "The server provides support to resolve additional\ninformation for a code action.",
+                    "type": "boolean"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "CodeLensOptions": {
+            "description": "Code Lens provider options of a [CodeLensRequest](#CodeLensRequest).",
+            "properties": {
+                "resolveProvider": {
+                    "description": "Code lens has a resolve provider as well.",
+                    "type": "boolean"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "CompletionOptions": {
+            "description": "Completion options.",
+            "properties": {
+                "allCommitCharacters": {
+                    "description": "The list of all possible characters that commit a completion. This field can be used\nif clients don't support individual commit characters per completion item. See\n`ClientCapabilities.textDocument.completion.completionItem.commitCharactersSupport`\n\nIf a server provides both `allCommitCharacters` and commit characters on an individual\ncompletion item the ones on the completion item win.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "resolveProvider": {
+                    "description": "The server provides support to resolve additional\ninformation for a completion item.",
+                    "type": "boolean"
+                },
+                "triggerCharacters": {
+                    "description": "Most tools trigger completion request automatically without explicitly requesting\nit using a keyboard shortcut (e.g. Ctrl+Space). Typically they do so when the user\nstarts to type an identifier. For example if the user types `c` in a JavaScript file\ncode complete will automatically pop up present `console` besides others as a\ncompletion item. Characters that make up identifiers don't need to be listed here.\n\nIf code complete should automatically be trigger on characters not being valid inside\nan identifier (for example `.` in JavaScript) list them in `triggerCharacters`.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DeclarationOptions": {
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DeclarationRegistrationOptions": {
+            "properties": {
+                "documentSelector": {
+                    "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+                    "type": "string"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DefinitionOptions": {
+            "description": "Server Capabilities for a [DefinitionRequest](#DefinitionRequest).",
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentColorOptions": {
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentColorRegistrationOptions": {
+            "properties": {
+                "documentSelector": {
+                    "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+                    "type": "string"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentFormattingOptions": {
+            "description": "Provider options for a [DocumentFormattingRequest](#DocumentFormattingRequest).",
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentHighlightOptions": {
+            "description": "Provider options for a [DocumentHighlightRequest](#DocumentHighlightRequest).",
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentLinkOptions": {
+            "description": "Provider options for a [DocumentLinkRequest](#DocumentLinkRequest).",
+            "properties": {
+                "resolveProvider": {
+                    "description": "Document links have a resolve provider as well.",
+                    "type": "boolean"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentOnTypeFormattingOptions": {
+            "description": "Provider options for a [DocumentOnTypeFormattingRequest](#DocumentOnTypeFormattingRequest).",
+            "properties": {
+                "firstTriggerCharacter": {
+                    "description": "A character on which formatting should be triggered, like `}`.",
+                    "type": "string"
+                },
+                "moreTriggerCharacter": {
+                    "description": "More trigger characters.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentRangeFormattingOptions": {
+            "description": "Provider options for a [DocumentRangeFormattingRequest](#DocumentRangeFormattingRequest).",
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentSymbolOptions": {
+            "description": "Provider options for a [DocumentSymbolRequest](#DocumentSymbolRequest).",
+            "properties": {
+                "label": {
+                    "description": "A human-readable string that is shown when multiple outlines trees\nare shown for the same document.",
+                    "type": "string"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ExecuteCommandOptions": {
+            "description": "The server capabilities of a [ExecuteCommandRequest](#ExecuteCommandRequest).",
+            "properties": {
+                "commands": {
+                    "description": "The commands to be executed on the server",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "FileOperationFilter": {
+            "description": "A filter to describe in which file operation requests or notifications\nthe server is interested in.",
+            "properties": {
+                "pattern": {
+                    "$ref": "/ServerCapabilities#/definitions/FileOperationPattern",
+                    "description": "The actual file operation pattern."
+                },
+                "scheme": {
+                    "description": "A Uri like `file` or `untitled`.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FileOperationOptions": {
+            "description": "Options for notifications/requests for user operations on files.",
+            "properties": {
+                "didCreate": {
+                    "$ref": "/ServerCapabilities#/definitions/FileOperationRegistrationOptions",
+                    "description": "The server is interested in didCreateFiles notifications."
+                },
+                "didDelete": {
+                    "$ref": "/ServerCapabilities#/definitions/FileOperationRegistrationOptions",
+                    "description": "The server is interested in didDeleteFiles file notifications."
+                },
+                "didRename": {
+                    "$ref": "/ServerCapabilities#/definitions/FileOperationRegistrationOptions",
+                    "description": "The server is interested in didRenameFiles notifications."
+                },
+                "willCreate": {
+                    "$ref": "/ServerCapabilities#/definitions/FileOperationRegistrationOptions",
+                    "description": "The server is interested in willCreateFiles requests."
+                },
+                "willDelete": {
+                    "$ref": "/ServerCapabilities#/definitions/FileOperationRegistrationOptions",
+                    "description": "The server is interested in willDeleteFiles file requests."
+                },
+                "willRename": {
+                    "$ref": "/ServerCapabilities#/definitions/FileOperationRegistrationOptions",
+                    "description": "The server is interested in willRenameFiles requests."
+                }
+            },
+            "type": "object"
+        },
+        "FileOperationPattern": {
+            "description": "A pattern to describe in which file operation requests or notifications\nthe server is interested in.",
+            "properties": {
+                "glob": {
+                    "description": "The glob pattern to match. Glob patterns can have the following syntax:\n- `*` to match one or more characters in a path segment\n- `?` to match on one character in a path segment\n- `**` to match any number of path segments, including none\n- `{}` to group conditions (e.g. `**​/*.{ts,js}` matches all TypeScript and JavaScript files)\n- `[]` to declare a range of characters to match in a path segment (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)\n- `[!...]` to negate a range of characters to match in a path segment (e.g., `example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)",
+                    "type": "string"
+                },
+                "matches": {
+                    "$ref": "/ServerCapabilities#/definitions/FileOperationPatternKind",
+                    "description": "Whether to match files or folders with this pattern.\n\nMatches both if undefined."
+                },
+                "options": {
+                    "$ref": "/ServerCapabilities#/definitions/FileOperationPatternOptions",
+                    "description": "Additional options used during matching."
+                }
+            },
+            "type": "object"
+        },
+        "FileOperationPatternKind": {
+            "description": "A pattern kind describing if a glob pattern matches a file a folder or\nboth.",
+            "enum": [
+                "file",
+                "folder"
+            ],
+            "type": "string"
+        },
+        "FileOperationPatternOptions": {
+            "description": "Matching options for the file operation pattern.",
+            "properties": {
+                "ignoreCase": {
+                    "description": "The pattern should be matched ignoring casing.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "FileOperationRegistrationOptions": {
+            "description": "The options to register for file operations.",
+            "properties": {
+                "filters": {
+                    "description": "The actual filters.",
+                    "items": {
+                        "$ref": "/ServerCapabilities#/definitions/FileOperationFilter"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "FoldingRangeOptions": {
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "FoldingRangeRegistrationOptions": {
+            "properties": {
+                "documentSelector": {
+                    "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+                    "type": "string"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "HoverOptions": {
+            "description": "Hover options.",
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ImplementationOptions": {
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ImplementationRegistrationOptions": {
+            "properties": {
+                "documentSelector": {
+                    "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+                    "type": "string"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "LinkedEditingRangeOptions": {
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "LinkedEditingRangeRegistrationOptions": {
+            "properties": {
+                "documentSelector": {
+                    "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+                    "type": "string"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "MonikerOptions": {
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "MonikerRegistrationOptions": {
+            "properties": {
+                "documentSelector": {
+                    "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ReferenceOptions": {
+            "description": "Reference options.",
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RenameOptions": {
+            "description": "Provider options for a [RenameRequest](#RenameRequest).",
+            "properties": {
+                "prepareProvider": {
+                    "description": "Renames should be checked and tested before being executed.",
+                    "type": "boolean"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SaveOptions": {
+            "description": "Save options.",
+            "properties": {
+                "includeText": {
+                    "description": "The client is supposed to include the content on save.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SelectionRangeOptions": {
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SelectionRangeRegistrationOptions": {
+            "properties": {
+                "documentSelector": {
+                    "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+                    "type": "string"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SemanticTokensLegend": {
+            "properties": {
+                "tokenModifiers": {
+                    "description": "The token modifiers a server uses.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "tokenTypes": {
+                    "description": "The token types a server uses.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "SemanticTokensOptions": {
+            "properties": {
+                "full": {
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "delta": {
+                                    "description": "The server supports deltas for full documents.",
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "Server supports providing semantic tokens for a full document."
+                },
+                "legend": {
+                    "$ref": "/ServerCapabilities#/definitions/SemanticTokensLegend",
+                    "description": "The legend used by the server"
+                },
+                "range": {
+                    "anyOf": [
+                        {
+                            "properties": {},
+                            "type": "object"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "Server supports providing semantic tokens for a specific range\nof a document."
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SemanticTokensRegistrationOptions": {
+            "properties": {
+                "documentSelector": {
+                    "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "full": {
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "delta": {
+                                    "description": "The server supports deltas for full documents.",
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "Server supports providing semantic tokens for a full document."
+                },
+                "id": {
+                    "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+                    "type": "string"
+                },
+                "legend": {
+                    "$ref": "/ServerCapabilities#/definitions/SemanticTokensLegend",
+                    "description": "The legend used by the server"
+                },
+                "range": {
+                    "anyOf": [
+                        {
+                            "properties": {},
+                            "type": "object"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "Server supports providing semantic tokens for a specific range\nof a document."
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "SignatureHelpOptions": {
+            "description": "Server Capabilities for a [SignatureHelpRequest](#SignatureHelpRequest).",
+            "properties": {
+                "retriggerCharacters": {
+                    "description": "List of characters that re-trigger signature help.\n\nThese trigger characters are only active when signature help is already showing. All trigger characters\nare also counted as re-trigger characters.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "triggerCharacters": {
+                    "description": "List of characters that trigger signature help.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "T": {
+            "type": "object"
+        },
+        "TextDocumentSyncKind": {
+            "description": "Defines how the host (editor) should sync\ndocument changes to the language server.",
+            "enum": [
+                0,
+                1,
+                2
+            ],
+            "type": "number"
+        },
+        "TextDocumentSyncOptions": {
+            "properties": {
+                "change": {
+                    "$ref": "/ServerCapabilities#/definitions/TextDocumentSyncKind",
+                    "description": "Change notifications are sent to the server. See TextDocumentSyncKind.None, TextDocumentSyncKind.Full\nand TextDocumentSyncKind.Incremental. If omitted it defaults to TextDocumentSyncKind.None."
+                },
+                "openClose": {
+                    "description": "Open and close notifications are sent to the server. If omitted open close notification should not\nbe sent.",
+                    "type": "boolean"
+                },
+                "save": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/SaveOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "If present save notifications are sent to the server. If omitted the notification should not be\nsent."
+                },
+                "willSave": {
+                    "description": "If present will save notifications are sent to the server. If omitted the notification should not be\nsent.",
+                    "type": "boolean"
+                },
+                "willSaveWaitUntil": {
+                    "description": "If present will save wait until requests are sent to the server. If omitted the request should not be\nsent.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "TypeDefinitionOptions": {
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "TypeDefinitionRegistrationOptions": {
+            "properties": {
+                "documentSelector": {
+                    "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "language": {
+                                        "description": "A language id, like `typescript`.",
+                                        "type": "string"
+                                    },
+                                    "pattern": {
+                                        "description": "A glob pattern, like `*.{ts,js}`.",
+                                        "type": "string"
+                                    },
+                                    "scheme": {
+                                        "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+                    "type": "string"
+                },
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "WorkspaceFoldersServerCapabilities": {
+            "properties": {
+                "workspace": {
+                    "description": "The workspace server capabilities",
+                    "properties": {
+                        "workspaceFolders": {
+                            "properties": {
+                                "changeNotifications": {
+                                    "description": "Whether the server wants to receive workspace folder\nchange notifications.\n\nIf a strings is provided the string is treated as a ID\nunder which the notification is registered on the client\nside. The ID can be used to unregister for these events\nusing the `client/unregisterCapability` request.",
+                                    "type": [
+                                        "string",
+                                        "boolean"
+                                    ]
+                                },
+                                "supported": {
+                                    "description": "The Server has support for workspace folders",
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "WorkspaceSymbolOptions": {
+            "description": "Server capabilities for a [WorkspaceSymbolRequest](#WorkspaceSymbolRequest).",
+            "properties": {
+                "workDoneProgress": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "_ServerCapabilities.T": {
+            "$ref": "/ServerCapabilities#/definitions/T"
+        },
+        "_ServerCapabilities<T>": {
+            "description": "Defines the capabilities provided by a language\nserver.",
+            "properties": {
+                "callHierarchyProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/CallHierarchyOptions"
+                        },
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/CallHierarchyRegistrationOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides call hierarchy support."
+                },
+                "codeActionProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/CodeActionOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides code actions. CodeActionOptions may only be\nspecified if the client states that it supports\n`codeActionLiteralSupport` in its initial `initialize` request."
+                },
+                "codeLensProvider": {
+                    "$ref": "/ServerCapabilities#/definitions/CodeLensOptions",
+                    "description": "The server provides code lens."
+                },
+                "colorProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/DocumentColorOptions"
+                        },
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/DocumentColorRegistrationOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides color provider support."
+                },
+                "completionProvider": {
+                    "$ref": "/ServerCapabilities#/definitions/CompletionOptions",
+                    "description": "The server provides completion support."
+                },
+                "declarationProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/DeclarationOptions"
+                        },
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/DeclarationRegistrationOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides Goto Declaration support."
+                },
+                "definitionProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/DefinitionOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides goto definition support."
+                },
+                "documentFormattingProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/DocumentFormattingOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides document formatting."
+                },
+                "documentHighlightProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/DocumentHighlightOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides document highlight support."
+                },
+                "documentLinkProvider": {
+                    "$ref": "/ServerCapabilities#/definitions/DocumentLinkOptions",
+                    "description": "The server provides document link support."
+                },
+                "documentOnTypeFormattingProvider": {
+                    "$ref": "/ServerCapabilities#/definitions/DocumentOnTypeFormattingOptions",
+                    "description": "The server provides document formatting on typing."
+                },
+                "documentRangeFormattingProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/DocumentRangeFormattingOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides document range formatting."
+                },
+                "documentSymbolProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/DocumentSymbolOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides document symbol support."
+                },
+                "executeCommandProvider": {
+                    "$ref": "/ServerCapabilities#/definitions/ExecuteCommandOptions",
+                    "description": "The server provides execute command support."
+                },
+                "experimental": {
+                    "$ref": "/ServerCapabilities#/definitions/_ServerCapabilities.T",
+                    "description": "Experimental server capabilities."
+                },
+                "foldingRangeProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/FoldingRangeOptions"
+                        },
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/FoldingRangeRegistrationOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides folding provider support."
+                },
+                "hoverProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/HoverOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides hover support."
+                },
+                "implementationProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/ImplementationOptions"
+                        },
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/ImplementationRegistrationOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides Goto Implementation support."
+                },
+                "linkedEditingRangeProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/LinkedEditingRangeOptions"
+                        },
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/LinkedEditingRangeRegistrationOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides linked editing range support."
+                },
+                "monikerProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/MonikerOptions"
+                        },
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/MonikerRegistrationOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides moniker support."
+                },
+                "referencesProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/ReferenceOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides find references support."
+                },
+                "renameProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/RenameOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides rename support. RenameOptions may only be\nspecified if the client states that it supports\n`prepareSupport` in its initial `initialize` request."
+                },
+                "selectionRangeProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/SelectionRangeOptions"
+                        },
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/SelectionRangeRegistrationOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides selection range support."
+                },
+                "semanticTokensProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/SemanticTokensOptions"
+                        },
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/SemanticTokensRegistrationOptions"
+                        }
+                    ],
+                    "description": "The server provides semantic tokens support."
+                },
+                "signatureHelpProvider": {
+                    "$ref": "/ServerCapabilities#/definitions/SignatureHelpOptions",
+                    "description": "The server provides signature help support."
+                },
+                "textDocumentSync": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/TextDocumentSyncOptions"
+                        },
+                        {
+                            "enum": [
+                                0,
+                                1,
+                                2
+                            ],
+                            "type": "number"
+                        }
+                    ],
+                    "description": "Defines how text documents are synced. Is either a detailed structure defining each notification or\nfor backwards compatibility the TextDocumentSyncKind number."
+                },
+                "typeDefinitionProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/TypeDefinitionOptions"
+                        },
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/TypeDefinitionRegistrationOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides Goto Type Definition support."
+                },
+                "workspace": {
+                    "description": "Window specific server capabilities.",
+                    "properties": {
+                        "fileOperations": {
+                            "$ref": "/ServerCapabilities#/definitions/FileOperationOptions",
+                            "description": "The server is interested in notifications/requests for operations on files."
+                        }
+                    },
+                    "type": "object"
+                },
+                "workspaceSymbolProvider": {
+                    "anyOf": [
+                        {
+                            "$ref": "/ServerCapabilities#/definitions/WorkspaceSymbolOptions"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The server provides workspace symbol support."
+                }
+            },
+            "type": "object"
+        }
+    }
+}
+

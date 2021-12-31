@@ -1,0 +1,43 @@
+{
+    "$id": "/PublishDiagnosticsClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The publish diagnostic client capabilities.",
+    "properties": {
+        "codeDescriptionSupport": {
+            "description": "Client supports a codeDescription property",
+            "type": "boolean"
+        },
+        "dataSupport": {
+            "description": "Whether code action supports the `data` property which is\npreserved between a `textDocument/publishDiagnostics` and\n`textDocument/codeAction` request.",
+            "type": "boolean"
+        },
+        "relatedInformation": {
+            "description": "Whether the clients accepts diagnostics with related information.",
+            "type": "boolean"
+        },
+        "tagSupport": {
+            "description": "Client supports the tag property to provide meta data about a diagnostic.\nClients supporting tags have to handle unknown tags gracefully.",
+            "properties": {
+                "valueSet": {
+                    "description": "The tags supported by the client.",
+                    "items": {
+                        "description": "The diagnostic tags.",
+                        "enum": [
+                            1,
+                            2
+                        ],
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "versionSupport": {
+            "description": "Whether the client interprets the version property of the\n`textDocument/publishDiagnostics` notification`s parameter.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

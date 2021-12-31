@@ -1,0 +1,7 @@
+{
+    "$id": "/uinteger",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+    "type": "number"
+}
+

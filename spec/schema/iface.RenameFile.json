@@ -1,0 +1,56 @@
+{
+    "$id": "/RenameFile",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ChangeAnnotationIdentifier": {
+            "description": "An identifier to refer to a change annotation stored with a workspace edit.",
+            "type": "string"
+        },
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        },
+        "RenameFileOptions": {
+            "description": "Rename file options",
+            "properties": {
+                "ignoreIfExists": {
+                    "description": "Ignores if target exists.",
+                    "type": "boolean"
+                },
+                "overwrite": {
+                    "description": "Overwrite target if existing. Overwrite wins over `ignoreIfExists`",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "description": "Rename file operation",
+    "properties": {
+        "annotationId": {
+            "$ref": "/RenameFile#/definitions/ChangeAnnotationIdentifier",
+            "description": "An optional annotation identifier describing the operation."
+        },
+        "kind": {
+            "description": "A rename",
+            "enum": [
+                "rename"
+            ],
+            "type": "string"
+        },
+        "newUri": {
+            "$ref": "/RenameFile#/definitions/DocumentUri",
+            "description": "The new location."
+        },
+        "oldUri": {
+            "$ref": "/RenameFile#/definitions/DocumentUri",
+            "description": "The old (existing) location."
+        },
+        "options": {
+            "$ref": "/RenameFile#/definitions/RenameFileOptions",
+            "description": "Rename options."
+        }
+    },
+    "type": "object"
+}
+

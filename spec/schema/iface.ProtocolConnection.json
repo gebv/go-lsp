@@ -1,0 +1,38 @@
+{
+    "$id": "/ProtocolConnection",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Event": {
+            "description": "Represents a typed event.",
+            "type": "object"
+        },
+        "Event_1": {
+            "description": "Represents a typed event.",
+            "type": "object"
+        },
+        "Event_2": {
+            "description": "Represents a typed event.",
+            "type": "object"
+        }
+    },
+    "properties": {
+        "onClose": {
+            "$ref": "/ProtocolConnection#/definitions/Event_1",
+            "description": "An event emitter firing when the connection got closed."
+        },
+        "onDispose": {
+            "$ref": "/ProtocolConnection#/definitions/Event_1",
+            "description": "An event emitter firing when the connection got disposed."
+        },
+        "onError": {
+            "$ref": "/ProtocolConnection#/definitions/Event",
+            "description": "An event emitter firing when an error occurs on the connection."
+        },
+        "onUnhandledNotification": {
+            "$ref": "/ProtocolConnection#/definitions/Event_2",
+            "description": "An event emiiter firing when the connection receives a notification that is not\nhandled."
+        }
+    },
+    "type": "object"
+}
+

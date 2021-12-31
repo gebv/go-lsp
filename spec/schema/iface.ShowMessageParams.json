@@ -1,0 +1,29 @@
+{
+    "$id": "/ShowMessageParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "MessageType": {
+            "description": "The message type",
+            "enum": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "type": "number"
+        }
+    },
+    "description": "The parameters of a notification message.",
+    "properties": {
+        "message": {
+            "description": "The actual message",
+            "type": "string"
+        },
+        "type": {
+            "$ref": "/ShowMessageParams#/definitions/MessageType",
+            "description": "The message type. See{@linkMessageType}"
+        }
+    },
+    "type": "object"
+}
+

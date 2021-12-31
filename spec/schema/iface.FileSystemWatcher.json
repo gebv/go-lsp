@@ -1,0 +1,22 @@
+{
+    "$id": "/FileSystemWatcher",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "properties": {
+        "globPattern": {
+            "description": "The  glob pattern to watch. Glob patterns can have the following syntax:\n- `*` to match one or more characters in a path segment\n- `?` to match on one character in a path segment\n- `**` to match any number of path segments, including none\n- `{}` to group conditions (e.g. `**​/*.{ts,js}` matches all TypeScript and JavaScript files)\n- `[]` to declare a range of characters to match in a path segment (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)\n- `[!...]` to negate a range of characters to match in a path segment (e.g., `example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)",
+            "type": "string"
+        },
+        "kind": {
+            "$ref": "/FileSystemWatcher#/definitions/uinteger",
+            "description": "The kind of events of interest. If omitted it defaults\nto WatchKind.Create | WatchKind.Change | WatchKind.Delete\nwhich is 7."
+        }
+    },
+    "type": "object"
+}
+

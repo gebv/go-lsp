@@ -1,0 +1,13 @@
+{
+    "$id": "/DocumentRangeFormattingClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Client capabilities of a [DocumentRangeFormattingRequest](#DocumentRangeFormattingRequest).",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether range formatting supports dynamic registration.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

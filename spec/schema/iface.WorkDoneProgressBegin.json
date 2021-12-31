@@ -1,0 +1,36 @@
+{
+    "$id": "/WorkDoneProgressBegin",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "properties": {
+        "cancellable": {
+            "description": "Controls if a cancel button should show to allow the user to cancel the\nlong running operation. Clients that don't support cancellation are allowed\nto ignore the setting.",
+            "type": "boolean"
+        },
+        "kind": {
+            "enum": [
+                "begin"
+            ],
+            "type": "string"
+        },
+        "message": {
+            "description": "Optional, more detailed associated progress message. Contains\ncomplementary information to the `title`.\n\nExamples: \"3/25 files\", \"project/src/module2\", \"node_modules/some_dep\".\nIf unset, the previous progress message (if any) is still valid.",
+            "type": "string"
+        },
+        "percentage": {
+            "$ref": "/WorkDoneProgressBegin#/definitions/uinteger",
+            "description": "Optional progress percentage to display (value 100 is considered 100%).\nIf not provided infinite progress is assumed and clients are allowed\nto ignore the `percentage` value in subsequent in report notifications.\n\nThe value should be steadily rising. Clients are free to ignore values\nthat are not following this rule. The value range is [0, 100]."
+        },
+        "title": {
+            "description": "Mandatory title of the progress operation. Used to briefly inform about\nthe kind of operation being performed.\n\nExamples: \"Indexing\" or \"Linking dependencies\".",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

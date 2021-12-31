@@ -1,0 +1,24 @@
+{
+    "$id": "/HoverClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "contentFormat": {
+            "description": "Client supports the follow content formats for the content\nproperty. The order describes the preferred format of the client.",
+            "items": {
+                "description": "Describes the content type that a client supports in various\nresult literals like `Hover`, `ParameterInfo` or `CompletionItem`.\n\nPlease note that `MarkupKinds` must not start with a `$`. This kinds\nare reserved for internal usage.",
+                "enum": [
+                    "markdown",
+                    "plaintext"
+                ],
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "dynamicRegistration": {
+            "description": "Whether hover supports dynamic registration.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

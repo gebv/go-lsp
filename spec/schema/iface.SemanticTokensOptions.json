@@ -1,0 +1,65 @@
+{
+    "$id": "/SemanticTokensOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "SemanticTokensLegend": {
+            "properties": {
+                "tokenModifiers": {
+                    "description": "The token modifiers a server uses.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "tokenTypes": {
+                    "description": "The token types a server uses.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "full": {
+            "anyOf": [
+                {
+                    "properties": {
+                        "delta": {
+                            "description": "The server supports deltas for full documents.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                {
+                    "type": "boolean"
+                }
+            ],
+            "description": "Server supports providing semantic tokens for a full document."
+        },
+        "legend": {
+            "$ref": "/SemanticTokensOptions#/definitions/SemanticTokensLegend",
+            "description": "The legend used by the server"
+        },
+        "range": {
+            "anyOf": [
+                {
+                    "properties": {},
+                    "type": "object"
+                },
+                {
+                    "type": "boolean"
+                }
+            ],
+            "description": "Server supports providing semantic tokens for a specific range\nof a document."
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

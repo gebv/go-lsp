@@ -1,0 +1,12 @@
+{
+    "$id": "/WorkDoneProgressOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The WorkDoneProgressOptions namespace provides helper functions to work with\n[WorkDoneProgressOptions](#WorkDoneProgressOptions) literals.",
+    "properties": {
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

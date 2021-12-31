@@ -1,0 +1,13 @@
+{
+    "$id": "/FileCreate",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Represents information on a file/folder create.",
+    "properties": {
+        "uri": {
+            "description": "A file:// URI for the location of the file/folder being created.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

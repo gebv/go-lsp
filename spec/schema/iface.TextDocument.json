@@ -1,0 +1,39 @@
+{
+    "$id": "/TextDocument",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        },
+        "integer": {
+            "description": "Defines an integer in the range of -2^31 to 2^31 - 1.",
+            "type": "integer"
+        },
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "description": "A simple text document. Not to be implemented. The document keeps the content\nas string.",
+    "properties": {
+        "languageId": {
+            "description": "The identifier of the language associated with this document.",
+            "type": "string"
+        },
+        "lineCount": {
+            "$ref": "/TextDocument#/definitions/uinteger",
+            "description": "The number of lines in this document."
+        },
+        "uri": {
+            "$ref": "/TextDocument#/definitions/DocumentUri",
+            "description": "The associated URI for this document. Most documents have the __file__-scheme, indicating that they\nrepresent files on disk. However, some documents may have other schemes indicating that they are not\navailable on disk."
+        },
+        "version": {
+            "$ref": "/TextDocument#/definitions/integer",
+            "description": "The version number of this document (it will increase after each\nchange, including undo/redo)."
+        }
+    },
+    "type": "object"
+}
+

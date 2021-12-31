@@ -1,0 +1,30 @@
+{
+    "$id": "/WorkspaceFoldersServerCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "workspace": {
+            "description": "The workspace server capabilities",
+            "properties": {
+                "workspaceFolders": {
+                    "properties": {
+                        "changeNotifications": {
+                            "description": "Whether the server wants to receive workspace folder\nchange notifications.\n\nIf a strings is provided the string is treated as a ID\nunder which the notification is registered on the client\nside. The ID can be used to unregister for these events\nusing the `client/unregisterCapability` request.",
+                            "type": [
+                                "string",
+                                "boolean"
+                            ]
+                        },
+                        "supported": {
+                            "description": "The Server has support for workspace folders",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}
+

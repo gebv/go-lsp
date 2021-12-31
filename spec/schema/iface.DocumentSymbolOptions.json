@@ -1,0 +1,16 @@
+{
+    "$id": "/DocumentSymbolOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Provider options for a [DocumentSymbolRequest](#DocumentSymbolRequest).",
+    "properties": {
+        "label": {
+            "description": "A human-readable string that is shown when multiple outlines trees\nare shown for the same document.",
+            "type": "string"
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

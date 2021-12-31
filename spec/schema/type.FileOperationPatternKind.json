@@ -1,0 +1,11 @@
+{
+    "$id": "/FileOperationPatternKind",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "A pattern kind describing if a glob pattern matches a file a folder or\nboth.",
+    "enum": [
+        "file",
+        "folder"
+    ],
+    "type": "string"
+}
+

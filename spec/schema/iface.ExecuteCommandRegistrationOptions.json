@@ -1,0 +1,19 @@
+{
+    "$id": "/ExecuteCommandRegistrationOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Registration options for a [ExecuteCommandRequest](#ExecuteCommandRequest).",
+    "properties": {
+        "commands": {
+            "description": "The commands to be executed on the server",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

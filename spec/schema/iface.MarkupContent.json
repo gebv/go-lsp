@@ -1,0 +1,27 @@
+{
+    "$id": "/MarkupContent",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "MarkupKind": {
+            "description": "Describes the content type that a client supports in various\nresult literals like `Hover`, `ParameterInfo` or `CompletionItem`.\n\nPlease note that `MarkupKinds` must not start with a `$`. This kinds\nare reserved for internal usage.",
+            "enum": [
+                "markdown",
+                "plaintext"
+            ],
+            "type": "string"
+        }
+    },
+    "description": "A `MarkupContent` literal represents a string value which content is interpreted base on its\nkind flag. Currently the protocol supports `plaintext` and `markdown` as markup kinds.\n\nIf the kind is `markdown` then the value can contain fenced code blocks like in GitHub issues.\nSee https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting\n\nHere is an example how such a string can be constructed using JavaScript / TypeScript:\n```ts\nlet markdown: MarkdownContent = {\n kind: MarkupKind.Markdown,\nvalue: [\n\t'# Header',\n\t'Some text',\n\t'```typescript',\n\t'someCode();',\n\t'```'\n].join('\\n')\n};\n```\n\n*Please Note* that clients might sanitize the return markdown. A client could decide to\nremove HTML from the markdown to avoid script execution.",
+    "properties": {
+        "kind": {
+            "$ref": "/MarkupContent#/definitions/MarkupKind",
+            "description": "The type of the Markup"
+        },
+        "value": {
+            "description": "The content itself",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

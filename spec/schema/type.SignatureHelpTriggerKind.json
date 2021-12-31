@@ -1,0 +1,12 @@
+{
+    "$id": "/SignatureHelpTriggerKind",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "How a signature help was triggered.",
+    "enum": [
+        1,
+        2,
+        3
+    ],
+    "type": "number"
+}
+

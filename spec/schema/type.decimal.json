@@ -1,0 +1,7 @@
+{
+    "$id": "/decimal",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Defines a decimal number. Since decimal numbers are very\nrare in the language server specification we denote the\nexact range with every decimal using the mathematics\ninterval notations (e.g. [0, 1] denotes all decimals d with\n0 <= d <= 1.",
+    "type": "number"
+}
+

@@ -1,0 +1,60 @@
+{
+    "$id": "/ShowMessageRequestParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "MessageActionItem": {
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "additionalProperties": true,
+                        "properties": {},
+                        "type": "object"
+                    },
+                    {
+                        "type": [
+                            "string",
+                            "number",
+                            "boolean"
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "title": {
+                    "description": "A short title like 'Retry', 'Open Log' etc.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "MessageType": {
+            "description": "The message type",
+            "enum": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "type": "number"
+        }
+    },
+    "properties": {
+        "actions": {
+            "description": "The message action items to present.",
+            "items": {
+                "$ref": "/ShowMessageRequestParams#/definitions/MessageActionItem"
+            },
+            "type": "array"
+        },
+        "message": {
+            "description": "The actual message",
+            "type": "string"
+        },
+        "type": {
+            "$ref": "/ShowMessageRequestParams#/definitions/MessageType",
+            "description": "The message type. See{@linkMessageType}"
+        }
+    },
+    "type": "object"
+}
+

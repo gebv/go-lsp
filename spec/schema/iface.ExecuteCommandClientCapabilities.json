@@ -1,0 +1,13 @@
+{
+    "$id": "/ExecuteCommandClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The client capabilities of a [ExecuteCommandRequest](#ExecuteCommandRequest).",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Execute command supports dynamic registration.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

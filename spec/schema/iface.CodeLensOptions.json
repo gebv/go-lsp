@@ -1,0 +1,16 @@
+{
+    "$id": "/CodeLensOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Code Lens provider options of a [CodeLensRequest](#CodeLensRequest).",
+    "properties": {
+        "resolveProvider": {
+            "description": "Code lens has a resolve provider as well.",
+            "type": "boolean"
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

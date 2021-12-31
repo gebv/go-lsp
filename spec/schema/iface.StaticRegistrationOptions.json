@@ -1,0 +1,13 @@
+{
+    "$id": "/StaticRegistrationOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Static registration options to be returned in the initialize\nrequest.\nThe StaticRegistrationOptions namespace provides helper functions to work with\n[StaticRegistrationOptions](#StaticRegistrationOptions) literals.",
+    "properties": {
+        "id": {
+            "description": "The id used to register the request. The id can be used to deregister\nthe request again. See also Registration#id.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

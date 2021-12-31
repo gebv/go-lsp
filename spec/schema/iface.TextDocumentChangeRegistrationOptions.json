@@ -1,0 +1,86 @@
+{
+    "$id": "/TextDocumentChangeRegistrationOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "TextDocumentSyncKind": {
+            "description": "Defines how the host (editor) should sync\ndocument changes to the language server.",
+            "enum": [
+                0,
+                1,
+                2
+            ],
+            "type": "number"
+        }
+    },
+    "description": "Describe options to be used when registered for text document change events.",
+    "properties": {
+        "documentSelector": {
+            "description": "A document selector to identify the scope of the registration. If set to null\nthe document selector provided on the client side will be used.",
+            "items": {
+                "anyOf": [
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "language": {
+                                "description": "A language id, like `typescript`.",
+                                "type": "string"
+                            },
+                            "pattern": {
+                                "description": "A glob pattern, like `*.{ts,js}`.",
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "description": "A Uri [scheme](#Uri.scheme), like `file` or `untitled`.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "type": "array"
+        },
+        "syncKind": {
+            "$ref": "/TextDocumentChangeRegistrationOptions#/definitions/TextDocumentSyncKind",
+            "description": "How documents are synced to the server."
+        }
+    },
+    "type": "object"
+}
+

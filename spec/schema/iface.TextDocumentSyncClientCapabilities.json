@@ -1,0 +1,24 @@
+{
+    "$id": "/TextDocumentSyncClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "didSave": {
+            "description": "The client supports did save notifications.",
+            "type": "boolean"
+        },
+        "dynamicRegistration": {
+            "description": "Whether text document synchronization supports dynamic registration.",
+            "type": "boolean"
+        },
+        "willSave": {
+            "description": "The client supports sending will save notifications.",
+            "type": "boolean"
+        },
+        "willSaveWaitUntil": {
+            "description": "The client supports sending a will save request and\nwaits for a response providing text edits which will\nbe applied to the document before it is saved.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

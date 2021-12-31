@@ -1,0 +1,115 @@
+{
+    "$id": "/TextDocumentEdit",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "AnnotatedTextEdit": {
+            "description": "A special text edit with an additional change annotation.",
+            "properties": {
+                "annotationId": {
+                    "$ref": "/TextDocumentEdit#/definitions/ChangeAnnotationIdentifier",
+                    "description": "The actual identifier of the change annotation"
+                },
+                "newText": {
+                    "description": "The string to be inserted. For delete operations use an\nempty string.",
+                    "type": "string"
+                },
+                "range": {
+                    "$ref": "/TextDocumentEdit#/definitions/Range",
+                    "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
+                }
+            },
+            "type": "object"
+        },
+        "ChangeAnnotationIdentifier": {
+            "description": "An identifier to refer to a change annotation stored with a workspace edit.",
+            "type": "string"
+        },
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        },
+        "OptionalVersionedTextDocumentIdentifier": {
+            "description": "A text document identifier to optionally denote a specific version of a text document.\nThe OptionalVersionedTextDocumentIdentifier namespace provides helper functions to work with\n[OptionalVersionedTextDocumentIdentifier](#OptionalVersionedTextDocumentIdentifier) literals.",
+            "properties": {
+                "uri": {
+                    "$ref": "/TextDocumentEdit#/definitions/DocumentUri",
+                    "description": "The text document's uri."
+                },
+                "version": {
+                    "description": "The version number of this document. If a versioned text document identifier\nis sent from the server to the client and the file is not open in the editor\n(the server has not received an open notification before) the server can send\n`null` to indicate that the version is unknown and the content on disk is the\ntruth (as specified with document content ownership).",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Position": {
+            "description": "Position in a text document expressed as zero-based line and character offset.\nThe offsets are based on a UTF-16 string representation. So a string of the form\n`a\ud801\udc00b` the character offset of the character `a` is 0, the character offset of `\ud801\udc00`\nis 1 and the character offset of b is 3 since `\ud801\udc00` is represented using two code\nunits in UTF-16.\n\nPositions are line end character agnostic. So you can not specify a position that\ndenotes `\\r|\\n` or `\\n|` where `|` represents the character offset.\nThe Position namespace provides helper functions to work with\n[Position](#Position) literals.",
+            "properties": {
+                "character": {
+                    "$ref": "/TextDocumentEdit#/definitions/uinteger",
+                    "description": "Character offset on a line in a document (zero-based). Assuming that the line is\nrepresented as a string, the `character` value represents the gap between the\n`character` and `character + 1`.\n\nIf the character value is greater than the line length it defaults back to the\nline length."
+                },
+                "line": {
+                    "$ref": "/TextDocumentEdit#/definitions/uinteger",
+                    "description": "Line position in a document (zero-based)."
+                }
+            },
+            "type": "object"
+        },
+        "Range": {
+            "description": "A range in a text document expressed as (zero-based) start and end positions.\n\nIf you want to specify a range that contains a line including the line ending\ncharacter(s) then use an end position denoting the start of the next line.\nFor example:\n```ts\n{\n    start: { line: 5, character: 23 }\n    end : { line 6, character : 0 }\n}\n```\nThe Range namespace provides helper functions to work with\n[Range](#Range) literals.",
+            "properties": {
+                "end": {
+                    "$ref": "/TextDocumentEdit#/definitions/Position",
+                    "description": "The range's end position."
+                },
+                "start": {
+                    "$ref": "/TextDocumentEdit#/definitions/Position",
+                    "description": "The range's start position"
+                }
+            },
+            "type": "object"
+        },
+        "TextEdit": {
+            "description": "A text edit applicable to a text document.\nThe TextEdit namespace provides helper function to create replace,\ninsert and delete edits more easily.",
+            "properties": {
+                "newText": {
+                    "description": "The string to be inserted. For delete operations use an\nempty string.",
+                    "type": "string"
+                },
+                "range": {
+                    "$ref": "/TextDocumentEdit#/definitions/Range",
+                    "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
+                }
+            },
+            "type": "object"
+        },
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "description": "Describes textual changes on a text document. A TextDocumentEdit describes all changes\non a document version Si and after they are applied move the document to version Si+1.\nSo the creator of a TextDocumentEdit doesn't need to sort the array of edits or do any\nkind of ordering. However the edits must be non overlapping.\nThe TextDocumentEdit namespace provides helper function to create\nan edit that manipulates a text document.",
+    "properties": {
+        "edits": {
+            "description": "The edits to be applied.",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "/TextDocumentEdit#/definitions/TextEdit"
+                    },
+                    {
+                        "$ref": "/TextDocumentEdit#/definitions/AnnotatedTextEdit"
+                    }
+                ]
+            },
+            "type": "array"
+        },
+        "textDocument": {
+            "$ref": "/TextDocumentEdit#/definitions/OptionalVersionedTextDocumentIdentifier",
+            "description": "The text document to change."
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,32 @@
+{
+    "$id": "/RenameFilesParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "FileRename": {
+            "description": "Represents information on a file/folder rename.",
+            "properties": {
+                "newUri": {
+                    "description": "A file:// URI for the new location of the file/folder being renamed.",
+                    "type": "string"
+                },
+                "oldUri": {
+                    "description": "A file:// URI for the original location of the file/folder being renamed.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "description": "The parameters sent in file rename requests/notifications.",
+    "properties": {
+        "files": {
+            "description": "An array of all files/folders renamed in this operation. When a folder is renamed, only\nthe folder will be included, and not its children.",
+            "items": {
+                "$ref": "/RenameFilesParams#/definitions/FileRename"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

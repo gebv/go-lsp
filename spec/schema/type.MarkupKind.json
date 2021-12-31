@@ -1,0 +1,11 @@
+{
+    "$id": "/MarkupKind",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Describes the content type that a client supports in various\nresult literals like `Hover`, `ParameterInfo` or `CompletionItem`.\n\nPlease note that `MarkupKinds` must not start with a `$`. This kinds\nare reserved for internal usage.",
+    "enum": [
+        "markdown",
+        "plaintext"
+    ],
+    "type": "string"
+}
+

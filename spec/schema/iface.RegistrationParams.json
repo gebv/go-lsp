@@ -1,0 +1,33 @@
+{
+    "$id": "/RegistrationParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Registration": {
+            "description": "General parameters to to register for an notification or to register a provider.",
+            "properties": {
+                "id": {
+                    "description": "The id used to register the request. The id can be used to deregister\nthe request again.",
+                    "type": "string"
+                },
+                "method": {
+                    "description": "The method to register for.",
+                    "type": "string"
+                },
+                "registerOptions": {
+                    "description": "Options necessary for the registration."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "registrations": {
+            "items": {
+                "$ref": "/RegistrationParams#/definitions/Registration"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,12 @@
+{
+    "$id": "/TextDocumentSyncKind",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Defines how the host (editor) should sync\ndocument changes to the language server.",
+    "enum": [
+        0,
+        1,
+        2
+    ],
+    "type": "number"
+}
+

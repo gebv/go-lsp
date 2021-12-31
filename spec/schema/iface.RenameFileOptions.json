@@ -1,0 +1,17 @@
+{
+    "$id": "/RenameFileOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Rename file options",
+    "properties": {
+        "ignoreIfExists": {
+            "description": "Ignores if target exists.",
+            "type": "boolean"
+        },
+        "overwrite": {
+            "description": "Overwrite target if existing. Overwrite wins over `ignoreIfExists`",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

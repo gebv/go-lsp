@@ -1,0 +1,17 @@
+{
+    "$id": "/TypeDefinitionClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Since 3.6.0",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether implementation supports dynamic registration. If this is set to `true`\nthe client supports the new `TypeDefinitionRegistrationOptions` return value\nfor the corresponding server capability as well.",
+            "type": "boolean"
+        },
+        "linkSupport": {
+            "description": "The client supports additional metadata in the form of definition links.\n\nSince 3.14.0",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

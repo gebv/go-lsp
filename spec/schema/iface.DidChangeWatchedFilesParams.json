@@ -1,0 +1,45 @@
+{
+    "$id": "/DidChangeWatchedFilesParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        },
+        "FileChangeType": {
+            "description": "The file event type",
+            "enum": [
+                1,
+                2,
+                3
+            ],
+            "type": "number"
+        },
+        "FileEvent": {
+            "description": "An event describing a file change.",
+            "properties": {
+                "type": {
+                    "$ref": "/DidChangeWatchedFilesParams#/definitions/FileChangeType",
+                    "description": "The change type."
+                },
+                "uri": {
+                    "$ref": "/DidChangeWatchedFilesParams#/definitions/DocumentUri",
+                    "description": "The file's uri."
+                }
+            },
+            "type": "object"
+        }
+    },
+    "description": "The watched files change notification's parameters.",
+    "properties": {
+        "changes": {
+            "description": "The actual file events.",
+            "items": {
+                "$ref": "/DidChangeWatchedFilesParams#/definitions/FileEvent"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

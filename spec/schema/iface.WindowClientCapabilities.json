@@ -1,0 +1,48 @@
+{
+    "$id": "/WindowClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ShowDocumentClientCapabilities": {
+            "description": "Client capabilities for the show document request.",
+            "properties": {
+                "support": {
+                    "description": "The client has support for the show document\nrequest.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ShowMessageRequestClientCapabilities": {
+            "description": "Show message request client capabilities",
+            "properties": {
+                "messageActionItem": {
+                    "description": "Capabilities specific to the `MessageActionItem` type.",
+                    "properties": {
+                        "additionalPropertiesSupport": {
+                            "description": "Whether the client supports additional attributes which\nare preserved and send back to the server in the\nrequest's response.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "showDocument": {
+            "$ref": "/WindowClientCapabilities#/definitions/ShowDocumentClientCapabilities",
+            "description": "Capabilities specific to the showDocument request."
+        },
+        "showMessage": {
+            "$ref": "/WindowClientCapabilities#/definitions/ShowMessageRequestClientCapabilities",
+            "description": "Capabilities specific to the showMessage request."
+        },
+        "workDoneProgress": {
+            "description": "Whether client supports handling progress notifications. If set\nservers are allowed to report in `workDoneProgress` property in the\nrequest specific server capabilities.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

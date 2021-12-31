@@ -1,0 +1,16 @@
+{
+    "$id": "/RenameOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Provider options for a [RenameRequest](#RenameRequest).",
+    "properties": {
+        "prepareProvider": {
+            "description": "Renames should be checked and tested before being executed.",
+            "type": "boolean"
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

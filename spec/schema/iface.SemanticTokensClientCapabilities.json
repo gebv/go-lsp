@@ -1,0 +1,79 @@
+{
+    "$id": "/SemanticTokensClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether implementation supports dynamic registration. If this is set to `true`\nthe client supports the new `(TextDocumentRegistrationOptions & StaticRegistrationOptions)`\nreturn value for the corresponding server capability as well.",
+            "type": "boolean"
+        },
+        "formats": {
+            "description": "The token formats the clients supports.",
+            "items": {
+                "enum": [
+                    "relative"
+                ],
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "multilineTokenSupport": {
+            "description": "Whether the client supports tokens that can span multiple lines.",
+            "type": "boolean"
+        },
+        "overlappingTokenSupport": {
+            "description": "Whether the client supports tokens that can overlap each other.",
+            "type": "boolean"
+        },
+        "requests": {
+            "description": "Which requests the client supports and might send to the server\ndepending on the server's capability. Please note that clients might not\nshow semantic tokens or degrade some of the user experience if a range\nor full request is advertised by the client but not provided by the\nserver. If for example the client capability `requests.full` and\n`request.range` are both set to true but the server only provides a\nrange provider the client might not render a minimap correctly or might\neven decide to not show any semantic tokens at all.",
+            "properties": {
+                "full": {
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "delta": {
+                                    "description": "The client will send the `textDocument/semanticTokens/full/delta` request if\nthe server provides a corresponding handler.",
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The client will send the `textDocument/semanticTokens/full` request if\nthe server provides a corresponding handler."
+                },
+                "range": {
+                    "anyOf": [
+                        {
+                            "properties": {},
+                            "type": "object"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ],
+                    "description": "The client will send the `textDocument/semanticTokens/range` request if\nthe server provides a corresponding handler."
+                }
+            },
+            "type": "object"
+        },
+        "tokenModifiers": {
+            "description": "The token modifiers that the client supports.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "tokenTypes": {
+            "description": "The token types that the client supports.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

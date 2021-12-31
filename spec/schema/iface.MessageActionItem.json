@@ -1,0 +1,28 @@
+{
+    "$id": "/MessageActionItem",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": {
+        "anyOf": [
+            {
+                "additionalProperties": true,
+                "properties": {},
+                "type": "object"
+            },
+            {
+                "type": [
+                    "string",
+                    "number",
+                    "boolean"
+                ]
+            }
+        ]
+    },
+    "properties": {
+        "title": {
+            "description": "A short title like 'Retry', 'Open Log' etc.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,28 @@
+{
+    "$id": "/DeleteFilesParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "FileDelete": {
+            "description": "Represents information on a file/folder delete.",
+            "properties": {
+                "uri": {
+                    "description": "A file:// URI for the location of the file/folder being deleted.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "description": "The parameters sent in file delete requests/notifications.",
+    "properties": {
+        "files": {
+            "description": "An array of all files/folders deleted in this operation.",
+            "items": {
+                "$ref": "/DeleteFilesParams#/definitions/FileDelete"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

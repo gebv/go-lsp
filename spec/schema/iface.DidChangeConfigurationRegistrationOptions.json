@@ -1,0 +1,21 @@
+{
+    "$id": "/DidChangeConfigurationRegistrationOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "section": {
+            "anyOf": [
+                {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                {
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "type": "object"
+}
+

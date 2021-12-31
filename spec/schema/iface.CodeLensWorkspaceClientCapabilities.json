@@ -1,0 +1,12 @@
+{
+    "$id": "/CodeLensWorkspaceClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "refreshSupport": {
+            "description": "Whether the client implementation supports a refresh request sent from the\nserver to the client.\n\nNote that this event is global and will force the client to refresh all\ncode lenses currently shown. It should be used with absolute care and is\nuseful for situation where a server for example detect a project wide\nchange that requires such a calculation.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,13 @@
+{
+    "$id": "/FileOperationPatternOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Matching options for the file operation pattern.",
+    "properties": {
+        "ignoreCase": {
+            "description": "The pattern should be matched ignoring casing.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

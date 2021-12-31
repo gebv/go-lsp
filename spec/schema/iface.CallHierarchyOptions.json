@@ -1,0 +1,12 @@
+{
+    "$id": "/CallHierarchyOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Call hierarchy options used during static registration.",
+    "properties": {
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

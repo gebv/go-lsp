@@ -1,0 +1,20 @@
+{
+    "$id": "/PartialResultParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ProgressToken": {
+            "type": [
+                "string",
+                "number"
+            ]
+        }
+    },
+    "properties": {
+        "partialResultToken": {
+            "$ref": "/PartialResultParams#/definitions/ProgressToken",
+            "description": "An optional token that a server can use to report partial results (e.g. streaming) to\nthe client."
+        }
+    },
+    "type": "object"
+}
+

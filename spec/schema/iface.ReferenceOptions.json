@@ -1,0 +1,12 @@
+{
+    "$id": "/ReferenceOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Reference options.",
+    "properties": {
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

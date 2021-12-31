@@ -1,0 +1,61 @@
+{
+    "$id": "/CodeActionClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The Client Capabilities of a [CodeActionRequest](#CodeActionRequest).",
+    "properties": {
+        "codeActionLiteralSupport": {
+            "description": "The client support code action literals of type `CodeAction` as a valid\nresponse of the `textDocument/codeAction` request. If the property is not\nset the request can only return `Command` literals.",
+            "properties": {
+                "codeActionKind": {
+                    "description": "The code action kind is support with the following value\nset.",
+                    "properties": {
+                        "valueSet": {
+                            "description": "The code action kind values the client supports. When this\nproperty exists the client also guarantees that it will\nhandle values outside its set gracefully and falls back\nto a default value when unknown.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "dataSupport": {
+            "description": "Whether code action supports the `data` property which is\npreserved between a `textDocument/codeAction` and a\n`codeAction/resolve` request.",
+            "type": "boolean"
+        },
+        "disabledSupport": {
+            "description": "Whether code action supports the `disabled` property.",
+            "type": "boolean"
+        },
+        "dynamicRegistration": {
+            "description": "Whether code action supports dynamic registration.",
+            "type": "boolean"
+        },
+        "honorsChangeAnnotations": {
+            "description": "Whether th client honors the change annotations in\ntext edits and resource operations returned via the\n`CodeAction#edit` property by for example presenting\nthe workspace edit in the user interface and asking\nfor confirmation.",
+            "type": "boolean"
+        },
+        "isPreferredSupport": {
+            "description": "Whether code action supports the `isPreferred` property.",
+            "type": "boolean"
+        },
+        "resolveSupport": {
+            "description": "Whether the client support resolving additional code action\nproperties via a separate `codeAction/resolve` request.",
+            "properties": {
+                "properties": {
+                    "description": "The properties that a client can resolve lazily.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,17 @@
+{
+    "$id": "/FileRename",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Represents information on a file/folder rename.",
+    "properties": {
+        "newUri": {
+            "description": "A file:// URI for the new location of the file/folder being renamed.",
+            "type": "string"
+        },
+        "oldUri": {
+            "description": "A file:// URI for the original location of the file/folder being renamed.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,18 @@
+{
+    "$id": "/WorkspaceFoldersClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "workspace": {
+            "description": "The workspace client capabilities",
+            "properties": {
+                "workspaceFolders": {
+                    "description": "The client has support for workspace folders",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}
+

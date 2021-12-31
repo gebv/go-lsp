@@ -1,0 +1,13 @@
+{
+    "$id": "/ReferenceClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Client Capabilities for a [ReferencesRequest](#ReferencesRequest).",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether references supports dynamic registration.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

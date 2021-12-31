@@ -1,0 +1,17 @@
+{
+    "$id": "/RegularExpressionsClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Client capabilities specific to regular expressions.",
+    "properties": {
+        "engine": {
+            "description": "The engine's name.",
+            "type": "string"
+        },
+        "version": {
+            "description": "The engine's version.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

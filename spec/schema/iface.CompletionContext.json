@@ -1,0 +1,28 @@
+{
+    "$id": "/CompletionContext",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "CompletionTriggerKind": {
+            "description": "How a completion was triggered",
+            "enum": [
+                1,
+                2,
+                3
+            ],
+            "type": "number"
+        }
+    },
+    "description": "Contains additional information about the context in which a completion request is triggered.",
+    "properties": {
+        "triggerCharacter": {
+            "description": "The trigger character (a single character) that has trigger code complete.\nIs undefined if `triggerKind !== CompletionTriggerKind.TriggerCharacter`",
+            "type": "string"
+        },
+        "triggerKind": {
+            "$ref": "/CompletionContext#/definitions/CompletionTriggerKind",
+            "description": "How the completion was triggered."
+        }
+    },
+    "type": "object"
+}
+

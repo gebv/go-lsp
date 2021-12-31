@@ -1,0 +1,12 @@
+{
+    "$id": "/DidChangeConfigurationParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The parameters of a change configuration notification.",
+    "properties": {
+        "settings": {
+            "description": "The actual changed settings"
+        }
+    },
+    "type": "object"
+}
+

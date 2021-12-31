@@ -1,0 +1,40 @@
+{
+    "$id": "/SemanticTokensDeltaPartialResult",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "SemanticTokensEdit": {
+            "properties": {
+                "data": {
+                    "description": "The elements to insert.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "deleteCount": {
+                    "$ref": "/SemanticTokensDeltaPartialResult#/definitions/uinteger",
+                    "description": "The count of elements to remove."
+                },
+                "start": {
+                    "$ref": "/SemanticTokensDeltaPartialResult#/definitions/uinteger",
+                    "description": "The start offset of the edit."
+                }
+            },
+            "type": "object"
+        },
+        "uinteger": {
+            "description": "Defines an unsigned integer in the range of 0 to 2^31 - 1.",
+            "type": "number"
+        }
+    },
+    "properties": {
+        "edits": {
+            "items": {
+                "$ref": "/SemanticTokensDeltaPartialResult#/definitions/SemanticTokensEdit"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

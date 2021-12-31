@@ -1,0 +1,13 @@
+{
+    "$id": "/MessageType",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The message type",
+    "enum": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "type": "number"
+}
+

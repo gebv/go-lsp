@@ -1,0 +1,16 @@
+{
+    "$id": "/DocumentLinkOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Provider options for a [DocumentLinkRequest](#DocumentLinkRequest).",
+    "properties": {
+        "resolveProvider": {
+            "description": "Document links have a resolve provider as well.",
+            "type": "boolean"
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,11 @@
+{
+    "$id": "/InsertTextFormat",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Defines whether the insert text in a completion item should be interpreted as\nplain text or a snippet.",
+    "enum": [
+        1,
+        2
+    ],
+    "type": "number"
+}
+

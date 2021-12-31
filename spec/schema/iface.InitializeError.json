@@ -1,0 +1,13 @@
+{
+    "$id": "/InitializeError",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Known error codes for an `InitializeError`;\nThe data type of the ResponseError if the\ninitialize request fails.",
+    "properties": {
+        "retry": {
+            "description": "Indicates whether the client execute the following retry logic:\n(1) show the message provided by the ResponseError to the user\n(2) user selects retry or cancel\n(3) if user selected retry the initialize method is sent again.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,30 @@
+{
+    "$id": "/UnregistrationParams",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Unregistration": {
+            "description": "General parameters to unregister a request or notification.",
+            "properties": {
+                "id": {
+                    "description": "The id used to unregister the request or notification. Usually an id\nprovided during the register request.",
+                    "type": "string"
+                },
+                "method": {
+                    "description": "The method to unregister for.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "unregisterations": {
+            "items": {
+                "$ref": "/UnregistrationParams#/definitions/Unregistration"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

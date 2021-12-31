@@ -1,0 +1,12 @@
+{
+    "$id": "/SelectionRangeClientCapabilities",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "dynamicRegistration": {
+            "description": "Whether implementation supports dynamic registration for selection range providers. If this is set to `true`\nthe client supports the new `SelectionRangeRegistrationOptions` return value for the corresponding server\ncapability as well.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

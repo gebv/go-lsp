@@ -1,0 +1,52 @@
+{
+    "$id": "/CreateFile",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ChangeAnnotationIdentifier": {
+            "description": "An identifier to refer to a change annotation stored with a workspace edit.",
+            "type": "string"
+        },
+        "CreateFileOptions": {
+            "description": "Options to create a file.",
+            "properties": {
+                "ignoreIfExists": {
+                    "description": "Ignore if exists.",
+                    "type": "boolean"
+                },
+                "overwrite": {
+                    "description": "Overwrite existing file. Overwrite wins over `ignoreIfExists`",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "DocumentUri": {
+            "description": "A tagging type for string properties that are actually document URIs.",
+            "type": "string"
+        }
+    },
+    "description": "Create file operation.",
+    "properties": {
+        "annotationId": {
+            "$ref": "/CreateFile#/definitions/ChangeAnnotationIdentifier",
+            "description": "An optional annotation identifier describing the operation."
+        },
+        "kind": {
+            "description": "A create",
+            "enum": [
+                "create"
+            ],
+            "type": "string"
+        },
+        "options": {
+            "$ref": "/CreateFile#/definitions/CreateFileOptions",
+            "description": "Additional options"
+        },
+        "uri": {
+            "$ref": "/CreateFile#/definitions/DocumentUri",
+            "description": "The resource to create."
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,30 @@
+{
+    "$id": "/CompletionOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Completion options.",
+    "properties": {
+        "allCommitCharacters": {
+            "description": "The list of all possible characters that commit a completion. This field can be used\nif clients don't support individual commit characters per completion item. See\n`ClientCapabilities.textDocument.completion.completionItem.commitCharactersSupport`\n\nIf a server provides both `allCommitCharacters` and commit characters on an individual\ncompletion item the ones on the completion item win.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "resolveProvider": {
+            "description": "The server provides support to resolve additional\ninformation for a completion item.",
+            "type": "boolean"
+        },
+        "triggerCharacters": {
+            "description": "Most tools trigger completion request automatically without explicitly requesting\nit using a keyboard shortcut (e.g. Ctrl+Space). Typically they do so when the user\nstarts to type an identifier. For example if the user types `c` in a JavaScript file\ncode complete will automatically pop up present `console` besides others as a\ncompletion item. Characters that make up identifiers don't need to be listed here.\n\nIf code complete should automatically be trigger on characters not being valid inside\nan identifier (for example `.` in JavaScript) list them in `triggerCharacters`.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

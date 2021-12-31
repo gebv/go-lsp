@@ -1,0 +1,12 @@
+{
+    "$id": "/WorkspaceSymbolRegistrationOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Registration options for a [WorkspaceSymbolRequest](#WorkspaceSymbolRequest).",
+    "properties": {
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

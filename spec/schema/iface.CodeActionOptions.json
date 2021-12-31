@@ -1,0 +1,23 @@
+{
+    "$id": "/CodeActionOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Provider options for a [CodeActionRequest](#CodeActionRequest).",
+    "properties": {
+        "codeActionKinds": {
+            "description": "CodeActionKinds that this server may return.\n\nThe list of kinds may be generic, such as `CodeActionKind.Refactor`, or the server\nmay list out every specific kind they provide.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "resolveProvider": {
+            "description": "The server provides support to resolve additional\ninformation for a code action.",
+            "type": "boolean"
+        },
+        "workDoneProgress": {
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

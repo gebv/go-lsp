@@ -1,0 +1,16 @@
+{
+    "$id": "/WorkspaceFolder",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "name": {
+            "description": "The name of the workspace folder. Used to refer to this\nworkspace folder in the user interface.",
+            "type": "string"
+        },
+        "uri": {
+            "description": "The associated URI for this workspace folder.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

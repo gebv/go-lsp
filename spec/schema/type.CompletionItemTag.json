@@ -1,0 +1,10 @@
+{
+    "$id": "/CompletionItemTag",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Completion item tags are extra annotations that tweak the rendering of a completion\nitem.",
+    "enum": [
+        1
+    ],
+    "type": "number"
+}
+

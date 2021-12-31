@@ -1,0 +1,7 @@
+{
+    "$id": "/DocumentUri",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "A tagging type for string properties that are actually document URIs.",
+    "type": "string"
+}
+

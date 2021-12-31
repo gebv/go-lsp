@@ -1,0 +1,56 @@
+{
+    "$id": "/TextDocumentSyncOptions",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "SaveOptions": {
+            "description": "Save options.",
+            "properties": {
+                "includeText": {
+                    "description": "The client is supposed to include the content on save.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "TextDocumentSyncKind": {
+            "description": "Defines how the host (editor) should sync\ndocument changes to the language server.",
+            "enum": [
+                0,
+                1,
+                2
+            ],
+            "type": "number"
+        }
+    },
+    "properties": {
+        "change": {
+            "$ref": "/TextDocumentSyncOptions#/definitions/TextDocumentSyncKind",
+            "description": "Change notifications are sent to the server. See TextDocumentSyncKind.None, TextDocumentSyncKind.Full\nand TextDocumentSyncKind.Incremental. If omitted it defaults to TextDocumentSyncKind.None."
+        },
+        "openClose": {
+            "description": "Open and close notifications are sent to the server. If omitted open close notification should not\nbe sent.",
+            "type": "boolean"
+        },
+        "save": {
+            "anyOf": [
+                {
+                    "$ref": "/TextDocumentSyncOptions#/definitions/SaveOptions"
+                },
+                {
+                    "type": "boolean"
+                }
+            ],
+            "description": "If present save notifications are sent to the server. If omitted the notification should not be\nsent."
+        },
+        "willSave": {
+            "description": "If present will save notifications are sent to the server. If omitted the notification should not be\nsent.",
+            "type": "boolean"
+        },
+        "willSaveWaitUntil": {
+            "description": "If present will save wait until requests are sent to the server. If omitted the request should not be\nsent.",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}
+

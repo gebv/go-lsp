@@ -1,0 +1,22 @@
+{
+    "$id": "/SemanticTokensLegend",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "tokenModifiers": {
+            "description": "The token modifiers a server uses.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "tokenTypes": {
+            "description": "The token types a server uses.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+
