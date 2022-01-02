@@ -18,6 +18,9 @@
                     "description": "Additional options used during matching."
                 }
             },
+            "required": [
+                "glob"
+            ],
             "type": "object"
         },
         "FileOperationPatternKind": {
@@ -50,6 +53,9 @@
             "type": "string"
         }
     },
+    "required": [
+        "pattern"
+    ],
     "type": "object"
 }
 

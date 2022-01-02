@@ -33,6 +33,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -50,6 +53,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "scheme"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -67,6 +73,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "pattern"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -84,6 +93,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "documentSelector"
+            ],
             "type": "object"
         },
         "CodeActionOptions": {
@@ -175,6 +187,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -192,6 +207,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "scheme"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -209,6 +227,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "pattern"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -226,6 +247,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "documentSelector"
+            ],
             "type": "object"
         },
         "DefinitionOptions": {
@@ -266,6 +290,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -283,6 +310,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "scheme"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -300,6 +330,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "pattern"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -317,6 +350,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "documentSelector"
+            ],
             "type": "object"
         },
         "DocumentFormattingOptions": {
@@ -365,6 +401,9 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "firstTriggerCharacter"
+            ],
             "type": "object"
         },
         "DocumentRangeFormattingOptions": {
@@ -403,6 +442,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "commands"
+            ],
             "type": "object"
         },
         "FileOperationFilter": {
@@ -417,6 +459,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "pattern"
+            ],
             "type": "object"
         },
         "FileOperationOptions": {
@@ -465,6 +510,9 @@
                     "description": "Additional options used during matching."
                 }
             },
+            "required": [
+                "glob"
+            ],
             "type": "object"
         },
         "FileOperationPatternKind": {
@@ -496,6 +544,9 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "filters"
+            ],
             "type": "object"
         },
         "FoldingRangeOptions": {
@@ -527,6 +578,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -544,6 +598,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "scheme"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -561,6 +618,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "pattern"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -578,6 +638,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "documentSelector"
+            ],
             "type": "object"
         },
         "HoverOptions": {
@@ -618,6 +681,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -635,6 +701,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "scheme"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -652,6 +721,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "pattern"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -669,6 +741,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "documentSelector"
+            ],
             "type": "object"
         },
         "LinkedEditingRangeOptions": {
@@ -700,6 +775,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -717,6 +795,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "scheme"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -734,6 +815,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "pattern"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -751,6 +835,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "documentSelector"
+            ],
             "type": "object"
         },
         "MonikerOptions": {
@@ -782,6 +869,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -799,6 +889,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "scheme"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -816,6 +909,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "pattern"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -829,6 +925,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "documentSelector"
+            ],
             "type": "object"
         },
         "ReferenceOptions": {
@@ -892,6 +991,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -909,6 +1011,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "scheme"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -926,6 +1031,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "pattern"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -943,6 +1051,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "documentSelector"
+            ],
             "type": "object"
         },
         "SemanticTokensLegend": {
@@ -962,6 +1073,10 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "tokenModifiers",
+                "tokenTypes"
+            ],
             "type": "object"
         },
         "SemanticTokensOptions": {
@@ -1003,6 +1118,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "legend"
+            ],
             "type": "object"
         },
         "SemanticTokensRegistrationOptions": {
@@ -1026,6 +1144,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -1043,6 +1164,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "scheme"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -1060,6 +1184,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "pattern"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -1110,6 +1237,10 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "documentSelector",
+                "legend"
+            ],
             "type": "object"
         },
         "SignatureHelpOptions": {
@@ -1205,6 +1336,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -1222,6 +1356,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "scheme"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -1239,6 +1376,9 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "pattern"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -1256,6 +1396,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "documentSelector"
+            ],
             "type": "object"
         },
         "WorkspaceSymbolOptions": {

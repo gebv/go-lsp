@@ -15,6 +15,9 @@
             "description": "The token to be used to report progress."
         }
     },
+    "required": [
+        "token"
+    ],
     "type": "object"
 }
 

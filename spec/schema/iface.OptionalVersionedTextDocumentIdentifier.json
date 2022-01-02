@@ -18,6 +18,10 @@
             "type": "number"
         }
     },
+    "required": [
+        "uri",
+        "version"
+    ],
     "type": "object"
 }
 

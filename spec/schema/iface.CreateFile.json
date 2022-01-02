@@ -47,6 +47,10 @@
             "description": "The resource to create."
         }
     },
+    "required": [
+        "kind",
+        "uri"
+    ],
     "type": "object"
 }
 

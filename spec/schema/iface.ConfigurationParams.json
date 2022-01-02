@@ -25,6 +25,9 @@
             "type": "array"
         }
     },
+    "required": [
+        "items"
+    ],
     "type": "object"
 }
 

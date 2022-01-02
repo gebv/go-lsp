@@ -21,6 +21,9 @@
                                 "type": "string"
                             }
                         },
+                        "required": [
+                            "language"
+                        ],
                         "type": "object"
                     },
                     {
@@ -38,6 +41,9 @@
                                 "type": "string"
                             }
                         },
+                        "required": [
+                            "scheme"
+                        ],
                         "type": "object"
                     },
                     {
@@ -55,6 +61,9 @@
                                 "type": "string"
                             }
                         },
+                        "required": [
+                            "pattern"
+                        ],
                         "type": "object"
                     },
                     {
@@ -72,6 +81,9 @@
             "type": "boolean"
         }
     },
+    "required": [
+        "documentSelector"
+    ],
     "type": "object"
 }
 

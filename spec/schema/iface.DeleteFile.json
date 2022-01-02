@@ -47,6 +47,10 @@
             "description": "The file to delete."
         }
     },
+    "required": [
+        "kind",
+        "uri"
+    ],
     "type": "object"
 }
 

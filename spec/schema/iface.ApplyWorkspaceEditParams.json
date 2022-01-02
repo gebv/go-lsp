@@ -18,6 +18,11 @@
                     "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
                 }
             },
+            "required": [
+                "annotationId",
+                "newText",
+                "range"
+            ],
             "type": "object"
         },
         "ChangeAnnotation": {
@@ -36,6 +41,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "label"
+            ],
             "type": "object"
         },
         "ChangeAnnotationIdentifier": {
@@ -65,6 +73,10 @@
                     "description": "The resource to create."
                 }
             },
+            "required": [
+                "kind",
+                "uri"
+            ],
             "type": "object"
         },
         "CreateFileOptions": {
@@ -104,6 +116,10 @@
                     "description": "The file to delete."
                 }
             },
+            "required": [
+                "kind",
+                "uri"
+            ],
             "type": "object"
         },
         "DeleteFileOptions": {
@@ -136,6 +152,10 @@
                     "type": "number"
                 }
             },
+            "required": [
+                "uri",
+                "version"
+            ],
             "type": "object"
         },
         "Position": {
@@ -150,6 +170,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -164,6 +188,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "RenameFile": {
@@ -193,6 +221,11 @@
                     "description": "Rename options."
                 }
             },
+            "required": [
+                "kind",
+                "newUri",
+                "oldUri"
+            ],
             "type": "object"
         },
         "RenameFileOptions": {
@@ -231,6 +264,10 @@
                     "description": "The text document to change."
                 }
             },
+            "required": [
+                "edits",
+                "textDocument"
+            ],
             "type": "object"
         },
         "TextEdit": {
@@ -245,6 +282,10 @@
                     "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
                 }
             },
+            "required": [
+                "newText",
+                "range"
+            ],
             "type": "object"
         },
         "WorkspaceEdit": {
@@ -306,6 +347,9 @@
             "type": "string"
         }
     },
+    "required": [
+        "edit"
+    ],
     "type": "object"
 }
 

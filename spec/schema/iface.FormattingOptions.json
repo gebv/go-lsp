@@ -37,6 +37,10 @@
             "type": "boolean"
         }
     },
+    "required": [
+        "insertSpaces",
+        "tabSize"
+    ],
     "type": "object"
 }
 

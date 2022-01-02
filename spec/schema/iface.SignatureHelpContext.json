@@ -14,6 +14,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "kind",
+                "value"
+            ],
             "type": "object"
         },
         "MarkupKind": {
@@ -60,6 +64,9 @@
                     "description": "The label of this parameter information.\n\nEither a string or an inclusive start and exclusive end offsets within its containing\nsignature label. (see SignatureInformation.label). The offsets are based on a UTF-16\nstring representation as `Position` and `Range` does.\n\n*Note*: a label of type string should be a substring of its containing signature label.\nIts intended use case is to highlight the parameter label part in the `SignatureInformation.label`."
                 }
             },
+            "required": [
+                "label"
+            ],
             "type": "object"
         },
         "SignatureHelp": {
@@ -81,6 +88,11 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "activeParameter",
+                "activeSignature",
+                "signatures"
+            ],
             "type": "object"
         },
         "SignatureHelpTriggerKind": {
@@ -122,6 +134,9 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "label"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -148,6 +163,10 @@
             "description": "Action that caused signature help to be triggered."
         }
     },
+    "required": [
+        "isRetrigger",
+        "triggerKind"
+    ],
     "type": "object"
 }
 

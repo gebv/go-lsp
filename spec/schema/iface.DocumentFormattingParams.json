@@ -37,6 +37,10 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "insertSpaces",
+                "tabSize"
+            ],
             "type": "object"
         },
         "ProgressToken": {
@@ -53,6 +57,9 @@
                     "description": "The text document's uri."
                 }
             },
+            "required": [
+                "uri"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -75,6 +82,10 @@
             "description": "An optional token that a server can use to report work done progress."
         }
     },
+    "required": [
+        "options",
+        "textDocument"
+    ],
     "type": "object"
 }
 

@@ -11,7 +11,7 @@ PROTOCOL_TYPES ?= utils/is.ts messages.ts connection.ts api.ts protocol.callHier
 	protocol.ts protocol.typeDefinition.ts protocol.workspaceFolders.ts
 
 BIN_GENJSONSCHEMA ?= typescript-json-schema
-BIN_GENJSONSCHEMA_ARGS ?= --aliasRefs --refs --tsNodeRegister
+BIN_GENJSONSCHEMA_ARGS ?= --aliasRefs --refs --tsNodeRegister --required
 
 all: init download_spec gen_jsonschema
 

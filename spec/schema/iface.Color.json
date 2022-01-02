@@ -26,6 +26,12 @@
             "description": "The red component of this color in the range [0-1]."
         }
     },
+    "required": [
+        "alpha",
+        "blue",
+        "green",
+        "red"
+    ],
     "type": "object"
 }
 

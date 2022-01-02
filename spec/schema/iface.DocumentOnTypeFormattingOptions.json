@@ -15,6 +15,9 @@
             "type": "array"
         }
     },
+    "required": [
+        "firstTriggerCharacter"
+    ],
     "type": "object"
 }
 

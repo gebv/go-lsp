@@ -34,6 +34,12 @@
             "description": "The version number of this document (it will increase after each\nchange, including undo/redo)."
         }
     },
+    "required": [
+        "languageId",
+        "lineCount",
+        "uri",
+        "version"
+    ],
     "type": "object"
 }
 

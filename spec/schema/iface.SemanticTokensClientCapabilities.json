@@ -74,6 +74,12 @@
             "type": "array"
         }
     },
+    "required": [
+        "formats",
+        "requests",
+        "tokenModifiers",
+        "tokenTypes"
+    ],
     "type": "object"
 }
 

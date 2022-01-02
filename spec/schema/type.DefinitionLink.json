@@ -18,6 +18,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -32,6 +36,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -58,6 +66,11 @@
             "description": "The target resource identifier of this link."
         }
     },
+    "required": [
+        "targetRange",
+        "targetSelectionRange",
+        "targetUri"
+    ],
     "type": "object"
 }
 

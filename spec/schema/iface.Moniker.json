@@ -42,6 +42,11 @@
             "description": "The scope in which the moniker is unique"
         }
     },
+    "required": [
+        "identifier",
+        "scheme",
+        "unique"
+    ],
     "type": "object"
 }
 

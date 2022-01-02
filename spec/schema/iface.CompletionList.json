@@ -19,6 +19,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "command",
+                "title"
+            ],
             "type": "object"
         },
         "CompletionItem": {
@@ -118,6 +122,9 @@
                     "description": "An [edit](#TextEdit) which is applied to a document when selecting\nthis completion. When an edit is provided the value of\n[insertText](#CompletionItem.insertText) is ignored.\n\nMost editors support two different operation when accepting a completion item. One is to insert a\ncompletion text and the other is to replace an existing text with a completion text. Since this can\nusually not predetermined by a server it can report both ranges. Clients need to signal support for\n`InsertReplaceEdits` via the `textDocument.completion.insertReplaceSupport` client capability\nproperty.\n\n*Note 1:* The text edit's range as well as both ranges from a insert replace edit must be a\n[single line] and they must contain the position at which completion has been requested.\n*Note 2:* If an `InsertReplaceEdit` is returned the edit's insert range must be a prefix of\nthe edit's replace range, that means it must be contained and starting at the same position."
                 }
             },
+            "required": [
+                "label"
+            ],
             "type": "object"
         },
         "CompletionItemKind": {
@@ -167,6 +174,11 @@
                     "description": "The range if the replace is requested."
                 }
             },
+            "required": [
+                "insert",
+                "newText",
+                "replace"
+            ],
             "type": "object"
         },
         "InsertTextFormat": {
@@ -197,6 +209,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "kind",
+                "value"
+            ],
             "type": "object"
         },
         "MarkupKind": {
@@ -219,6 +235,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -233,6 +253,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "TextEdit": {
@@ -247,6 +271,10 @@
                     "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
                 }
             },
+            "required": [
+                "newText",
+                "range"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -268,6 +296,10 @@
             "type": "array"
         }
     },
+    "required": [
+        "isIncomplete",
+        "items"
+    ],
     "type": "object"
 }
 

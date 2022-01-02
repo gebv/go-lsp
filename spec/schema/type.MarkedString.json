@@ -11,6 +11,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "language",
+                "value"
+            ],
             "type": "object"
         },
         {

@@ -14,6 +14,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "newUri",
+                "oldUri"
+            ],
             "type": "object"
         }
     },
@@ -27,6 +31,9 @@
             "type": "array"
         }
     },
+    "required": [
+        "files"
+    ],
     "type": "object"
 }
 

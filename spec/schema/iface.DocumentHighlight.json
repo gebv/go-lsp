@@ -23,6 +23,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -37,6 +41,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -55,6 +63,9 @@
             "description": "The range this highlight applies to."
         }
     },
+    "required": [
+        "range"
+    ],
     "type": "object"
 }
 

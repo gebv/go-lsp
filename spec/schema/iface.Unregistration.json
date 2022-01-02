@@ -12,6 +12,10 @@
             "type": "string"
         }
     },
+    "required": [
+        "id",
+        "method"
+    ],
     "type": "object"
 }
 

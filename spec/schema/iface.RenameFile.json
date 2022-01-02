@@ -51,6 +51,11 @@
             "description": "Rename options."
         }
     },
+    "required": [
+        "kind",
+        "newUri",
+        "oldUri"
+    ],
     "type": "object"
 }
 

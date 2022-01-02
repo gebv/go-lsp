@@ -23,6 +23,9 @@
             "description": "How the completion was triggered."
         }
     },
+    "required": [
+        "triggerKind"
+    ],
     "type": "object"
 }
 

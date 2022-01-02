@@ -17,9 +17,15 @@
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "valueSet"
+                    ],
                     "type": "object"
                 }
             },
+            "required": [
+                "codeActionKind"
+            ],
             "type": "object"
         },
         "dataSupport": {
@@ -53,6 +59,9 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "properties"
+            ],
             "type": "object"
         }
     },

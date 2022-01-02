@@ -22,6 +22,10 @@
             "type": "string"
         }
     },
+    "required": [
+        "kind",
+        "value"
+    ],
     "type": "object"
 }
 

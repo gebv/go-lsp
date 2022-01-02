@@ -14,6 +14,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -32,6 +36,10 @@
             "description": "The range's start position"
         }
     },
+    "required": [
+        "end",
+        "start"
+    ],
     "type": "object"
 }
 

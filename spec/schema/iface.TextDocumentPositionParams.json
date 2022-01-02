@@ -18,6 +18,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "TextDocumentIdentifier": {
@@ -28,6 +32,9 @@
                     "description": "The text document's uri."
                 }
             },
+            "required": [
+                "uri"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -46,6 +53,10 @@
             "description": "The text document."
         }
     },
+    "required": [
+        "position",
+        "textDocument"
+    ],
     "type": "object"
 }
 

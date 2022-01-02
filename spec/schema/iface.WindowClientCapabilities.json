@@ -10,6 +10,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "support"
+            ],
             "type": "object"
         },
         "ShowMessageRequestClientCapabilities": {

@@ -18,6 +18,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -32,6 +36,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "SymbolKind": {
@@ -111,6 +119,13 @@
             "description": "The resource identifier of this item."
         }
     },
+    "required": [
+        "kind",
+        "name",
+        "range",
+        "selectionRange",
+        "uri"
+    ],
     "type": "object"
 }
 

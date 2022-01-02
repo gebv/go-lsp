@@ -15,6 +15,10 @@
             "description": "Options necessary for the registration."
         }
     },
+    "required": [
+        "id",
+        "method"
+    ],
     "type": "object"
 }
 

@@ -63,6 +63,9 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "valueSet"
+            ],
             "type": "object"
         }
     },

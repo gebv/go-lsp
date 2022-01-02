@@ -17,6 +17,10 @@
                     "description": "Options necessary for the registration."
                 }
             },
+            "required": [
+                "id",
+                "method"
+            ],
             "type": "object"
         }
     },
@@ -28,6 +32,9 @@
             "type": "array"
         }
     },
+    "required": [
+        "registrations"
+    ],
     "type": "object"
 }
 

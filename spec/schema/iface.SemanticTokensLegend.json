@@ -17,6 +17,10 @@
             "type": "array"
         }
     },
+    "required": [
+        "tokenModifiers",
+        "tokenTypes"
+    ],
     "type": "object"
 }
 

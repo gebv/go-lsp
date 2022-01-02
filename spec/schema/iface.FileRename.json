@@ -12,6 +12,10 @@
             "type": "string"
         }
     },
+    "required": [
+        "newUri",
+        "oldUri"
+    ],
     "type": "object"
 }
 

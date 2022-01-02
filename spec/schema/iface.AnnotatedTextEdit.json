@@ -18,6 +18,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -32,6 +36,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -54,6 +62,11 @@
             "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
         }
     },
+    "required": [
+        "annotationId",
+        "newText",
+        "range"
+    ],
     "type": "object"
 }
 

@@ -27,6 +27,10 @@
                     "description": "The file's uri."
                 }
             },
+            "required": [
+                "type",
+                "uri"
+            ],
             "type": "object"
         }
     },
@@ -40,6 +44,9 @@
             "type": "array"
         }
     },
+    "required": [
+        "changes"
+    ],
     "type": "object"
 }
 

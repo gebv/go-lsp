@@ -8,6 +8,9 @@
             "type": "string"
         }
     },
+    "required": [
+        "uri"
+    ],
     "type": "object"
 }
 

@@ -30,6 +30,10 @@
             "description": "The zero-based start line of the range to fold. The folded area starts after the line's last character.\nTo be valid, the end must be zero or larger and smaller than the number of lines in the document."
         }
     },
+    "required": [
+        "endLine",
+        "startLine"
+    ],
     "type": "object"
 }
 

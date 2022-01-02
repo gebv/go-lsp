@@ -13,6 +13,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "name",
+                "uri"
+            ],
             "type": "object"
         }
     },
@@ -33,6 +37,10 @@
             "type": "array"
         }
     },
+    "required": [
+        "added",
+        "removed"
+    ],
     "type": "object"
 }
 

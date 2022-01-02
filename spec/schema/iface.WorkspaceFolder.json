@@ -11,6 +11,10 @@
             "type": "string"
         }
     },
+    "required": [
+        "name",
+        "uri"
+    ],
     "type": "object"
 }
 

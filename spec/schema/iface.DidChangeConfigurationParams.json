@@ -7,6 +7,9 @@
             "description": "The actual changed settings"
         }
     },
+    "required": [
+        "settings"
+    ],
     "type": "object"
 }
 

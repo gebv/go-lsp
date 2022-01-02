@@ -13,6 +13,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "name",
+                "uri"
+            ],
             "type": "object"
         },
         "WorkspaceFoldersChangeEvent": {
@@ -33,6 +37,10 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "added",
+                "removed"
+            ],
             "type": "object"
         }
     },
@@ -43,6 +51,9 @@
             "description": "The actual workspace folder change event."
         }
     },
+    "required": [
+        "event"
+    ],
     "type": "object"
 }
 

@@ -52,9 +52,15 @@
                                     "type": "array"
                                 }
                             },
+                            "required": [
+                                "valueSet"
+                            ],
                             "type": "object"
                         }
                     },
+                    "required": [
+                        "codeActionKind"
+                    ],
                     "type": "object"
                 },
                 "dataSupport": {
@@ -88,6 +94,9 @@
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "properties"
+                    ],
                     "type": "object"
                 }
             },
@@ -157,6 +166,9 @@
                                     "type": "array"
                                 }
                             },
+                            "required": [
+                                "valueSet"
+                            ],
                             "type": "object"
                         },
                         "preselectSupport": {
@@ -174,6 +186,9 @@
                                     "type": "array"
                                 }
                             },
+                            "required": [
+                                "properties"
+                            ],
                             "type": "object"
                         },
                         "snippetSupport": {
@@ -194,6 +209,9 @@
                                     "type": "array"
                                 }
                             },
+                            "required": [
+                                "valueSet"
+                            ],
                             "type": "object"
                         }
                     },
@@ -448,6 +466,9 @@
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "valueSet"
+                    ],
                     "type": "object"
                 }
             },
@@ -601,6 +622,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "parser"
+            ],
             "type": "object"
         },
         "MonikerClientCapabilities": {
@@ -656,6 +680,9 @@
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "valueSet"
+                    ],
                     "type": "object"
                 },
                 "versionSupport": {
@@ -687,6 +714,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "engine"
+            ],
             "type": "object"
         },
         "RenameClientCapabilities": {
@@ -793,6 +823,12 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "formats",
+                "requests",
+                "tokenModifiers",
+                "tokenTypes"
+            ],
             "type": "object"
         },
         "SemanticTokensWorkspaceClientCapabilities": {
@@ -812,6 +848,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "support"
+            ],
             "type": "object"
         },
         "ShowMessageRequestClientCapabilities": {
@@ -984,6 +1023,9 @@
                     "description": "Capabilities specific to the `textDocument/typeDefinition`"
                 }
             },
+            "required": [
+                "moniker"
+            ],
             "type": "object"
         },
         "TextDocumentSyncClientCapabilities": {
@@ -1146,6 +1188,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "name",
+                "uri"
+            ],
             "type": "object"
         },
         "WorkspaceFoldersClientCapabilities": {
@@ -1173,6 +1219,9 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "workspaceFolders"
+            ],
             "type": "object"
         },
         "WorkspaceSymbolClientCapabilities": {
@@ -1238,6 +1287,9 @@
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "valueSet"
+                    ],
                     "type": "object"
                 }
             },
@@ -1290,6 +1342,9 @@
                             "type": "string"
                         }
                     },
+                    "required": [
+                        "name"
+                    ],
                     "type": "object"
                 },
                 "initializationOptions": {
@@ -1325,6 +1380,11 @@
                     "description": "An optional token that a server can use to report work done progress."
                 }
             },
+            "required": [
+                "capabilities",
+                "processId",
+                "rootUri"
+            ],
             "type": "object"
         },
         "uinteger": {

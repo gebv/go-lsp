@@ -14,6 +14,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -28,6 +32,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -50,6 +58,11 @@
             "description": "The range if the replace is requested."
         }
     },
+    "required": [
+        "insert",
+        "newText",
+        "replace"
+    ],
     "type": "object"
 }
 

@@ -18,6 +18,11 @@
                     "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
                 }
             },
+            "required": [
+                "annotationId",
+                "newText",
+                "range"
+            ],
             "type": "object"
         },
         "ChangeAnnotationIdentifier": {
@@ -40,6 +45,10 @@
                     "type": "number"
                 }
             },
+            "required": [
+                "uri",
+                "version"
+            ],
             "type": "object"
         },
         "Position": {
@@ -54,6 +63,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -68,6 +81,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "TextEdit": {
@@ -82,6 +99,10 @@
                     "description": "The range of the text document to be manipulated. To insert\ntext into a document create a range where start === end."
                 }
             },
+            "required": [
+                "newText",
+                "range"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -110,6 +131,10 @@
             "description": "The text document to change."
         }
     },
+    "required": [
+        "edits",
+        "textDocument"
+    ],
     "type": "object"
 }
 

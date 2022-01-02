@@ -13,6 +13,9 @@
                     "description": "The kind of events of interest. If omitted it defaults\nto WatchKind.Create | WatchKind.Change | WatchKind.Delete\nwhich is 7."
                 }
             },
+            "required": [
+                "globPattern"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -30,6 +33,9 @@
             "type": "array"
         }
     },
+    "required": [
+        "watchers"
+    ],
     "type": "object"
 }
 

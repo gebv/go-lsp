@@ -19,6 +19,10 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "tokenModifiers",
+                "tokenTypes"
+            ],
             "type": "object"
         }
     },
@@ -60,6 +64,9 @@
             "type": "boolean"
         }
     },
+    "required": [
+        "legend"
+    ],
     "type": "object"
 }
 

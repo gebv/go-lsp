@@ -18,6 +18,10 @@
             "description": "Line position in a document (zero-based)."
         }
     },
+    "required": [
+        "character",
+        "line"
+    ],
     "type": "object"
 }
 

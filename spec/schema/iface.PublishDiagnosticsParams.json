@@ -10,6 +10,9 @@
                     "description": "An URI to open with more information about the diagnostic error."
                 }
             },
+            "required": [
+                "href"
+            ],
             "type": "object"
         },
         "Diagnostic": {
@@ -65,6 +68,10 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "message",
+                "range"
+            ],
             "type": "object"
         },
         "DiagnosticRelatedInformation": {
@@ -79,6 +86,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "location",
+                "message"
+            ],
             "type": "object"
         },
         "DiagnosticSeverity": {
@@ -105,6 +116,10 @@
                     "$ref": "/PublishDiagnosticsParams#/definitions/DocumentUri"
                 }
             },
+            "required": [
+                "range",
+                "uri"
+            ],
             "type": "object"
         },
         "Position": {
@@ -119,6 +134,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -133,6 +152,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "URI": {
@@ -166,6 +189,10 @@
             "description": "Optional the version number of the document the diagnostics are published for."
         }
     },
+    "required": [
+        "diagnostics",
+        "uri"
+    ],
     "type": "object"
 }
 

@@ -33,6 +33,12 @@
             "description": "An event emiiter firing when the connection receives a notification that is not\nhandled."
         }
     },
+    "required": [
+        "onClose",
+        "onDispose",
+        "onError",
+        "onUnhandledNotification"
+    ],
     "type": "object"
 }
 

@@ -31,6 +31,10 @@
             "type": "string"
         }
     },
+    "required": [
+        "kind",
+        "title"
+    ],
     "type": "object"
 }
 

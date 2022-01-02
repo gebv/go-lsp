@@ -26,6 +26,12 @@
                     "description": "The version number of this document (it will increase after each\nchange, including undo/redo)."
                 }
             },
+            "required": [
+                "languageId",
+                "text",
+                "uri",
+                "version"
+            ],
             "type": "object"
         },
         "integer": {
@@ -40,6 +46,9 @@
             "description": "The document that was opened."
         }
     },
+    "required": [
+        "textDocument"
+    ],
     "type": "object"
 }
 

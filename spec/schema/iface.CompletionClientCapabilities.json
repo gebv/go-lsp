@@ -55,6 +55,9 @@
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "valueSet"
+                    ],
                     "type": "object"
                 },
                 "preselectSupport": {
@@ -72,6 +75,9 @@
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "properties"
+                    ],
                     "type": "object"
                 },
                 "snippetSupport": {
@@ -92,6 +98,9 @@
                             "type": "array"
                         }
                     },
+                    "required": [
+                        "valueSet"
+                    ],
                     "type": "object"
                 }
             },

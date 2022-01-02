@@ -8,6 +8,9 @@
             "type": "boolean"
         }
     },
+    "required": [
+        "success"
+    ],
     "type": "object"
 }
 

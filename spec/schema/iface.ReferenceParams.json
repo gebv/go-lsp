@@ -18,6 +18,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "ProgressToken": {
@@ -34,6 +38,9 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "includeDeclaration"
+            ],
             "type": "object"
         },
         "TextDocumentIdentifier": {
@@ -44,6 +51,9 @@
                     "description": "The text document's uri."
                 }
             },
+            "required": [
+                "uri"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -73,6 +83,11 @@
             "description": "An optional token that a server can use to report work done progress."
         }
     },
+    "required": [
+        "context",
+        "position",
+        "textDocument"
+    ],
     "type": "object"
 }
 

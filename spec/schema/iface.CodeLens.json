@@ -19,6 +19,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "command",
+                "title"
+            ],
             "type": "object"
         },
         "Position": {
@@ -33,6 +37,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -47,6 +55,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -68,6 +80,9 @@
             "description": "The range in which this code lens is valid. Should only span a single line."
         }
     },
+    "required": [
+        "range"
+    ],
     "type": "object"
 }
 

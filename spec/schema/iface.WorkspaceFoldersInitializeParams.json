@@ -13,6 +13,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "name",
+                "uri"
+            ],
             "type": "object"
         }
     },
@@ -25,6 +29,9 @@
             "type": "array"
         }
     },
+    "required": [
+        "workspaceFolders"
+    ],
     "type": "object"
 }
 

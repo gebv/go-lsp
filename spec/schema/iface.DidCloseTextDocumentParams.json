@@ -14,6 +14,9 @@
                     "description": "The text document's uri."
                 }
             },
+            "required": [
+                "uri"
+            ],
             "type": "object"
         }
     },
@@ -24,6 +27,9 @@
             "description": "The document that was closed."
         }
     },
+    "required": [
+        "textDocument"
+    ],
     "type": "object"
 }
 

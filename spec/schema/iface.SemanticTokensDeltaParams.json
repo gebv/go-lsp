@@ -20,6 +20,9 @@
                     "description": "The text document's uri."
                 }
             },
+            "required": [
+                "uri"
+            ],
             "type": "object"
         }
     },
@@ -41,6 +44,10 @@
             "description": "An optional token that a server can use to report work done progress."
         }
     },
+    "required": [
+        "previousResultId",
+        "textDocument"
+    ],
     "type": "object"
 }
 

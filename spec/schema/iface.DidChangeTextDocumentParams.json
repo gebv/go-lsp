@@ -18,6 +18,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -32,6 +36,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "VersionedTextDocumentIdentifier": {
@@ -46,6 +54,10 @@
                     "description": "The version number of this document."
                 }
             },
+            "required": [
+                "uri",
+                "version"
+            ],
             "type": "object"
         },
         "integer": {
@@ -78,6 +90,10 @@
                                 "type": "string"
                             }
                         },
+                        "required": [
+                            "range",
+                            "text"
+                        ],
                         "type": "object"
                     },
                     {
@@ -87,6 +103,9 @@
                                 "type": "string"
                             }
                         },
+                        "required": [
+                            "text"
+                        ],
                         "type": "object"
                     }
                 ],
@@ -99,6 +118,10 @@
             "description": "The document that did change. The version number points\nto the version after all provided content changes have\nbeen applied."
         }
     },
+    "required": [
+        "contentChanges",
+        "textDocument"
+    ],
     "type": "object"
 }
 

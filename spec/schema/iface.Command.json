@@ -17,6 +17,10 @@
             "type": "string"
         }
     },
+    "required": [
+        "command",
+        "title"
+    ],
     "type": "object"
 }
 

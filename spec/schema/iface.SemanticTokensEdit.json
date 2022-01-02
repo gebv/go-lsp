@@ -24,6 +24,10 @@
             "description": "The start offset of the edit."
         }
     },
+    "required": [
+        "deleteCount",
+        "start"
+    ],
     "type": "object"
 }
 

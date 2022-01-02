@@ -25,6 +25,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "title"
+            ],
             "type": "object"
         },
         "MessageType": {
@@ -55,6 +58,10 @@
             "description": "The message type. See{@linkMessageType}"
         }
     },
+    "required": [
+        "message",
+        "type"
+    ],
     "type": "object"
 }
 

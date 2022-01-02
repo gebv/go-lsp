@@ -37,6 +37,10 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "insertSpaces",
+                "tabSize"
+            ],
             "type": "object"
         },
         "Position": {
@@ -51,6 +55,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "ProgressToken": {
@@ -71,6 +79,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "TextDocumentIdentifier": {
@@ -81,6 +93,9 @@
                     "description": "The text document's uri."
                 }
             },
+            "required": [
+                "uri"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -107,6 +122,11 @@
             "description": "An optional token that a server can use to report work done progress."
         }
     },
+    "required": [
+        "options",
+        "range",
+        "textDocument"
+    ],
     "type": "object"
 }
 

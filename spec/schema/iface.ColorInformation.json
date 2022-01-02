@@ -22,6 +22,12 @@
                     "description": "The red component of this color in the range [0-1]."
                 }
             },
+            "required": [
+                "alpha",
+                "blue",
+                "green",
+                "red"
+            ],
             "type": "object"
         },
         "Position": {
@@ -36,6 +42,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -50,6 +60,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "decimal": {
@@ -72,6 +86,10 @@
             "description": "The range in the document where this color appears."
         }
     },
+    "required": [
+        "color",
+        "range"
+    ],
     "type": "object"
 }
 

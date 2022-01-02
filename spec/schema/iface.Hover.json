@@ -14,6 +14,10 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "kind",
+                "value"
+            ],
             "type": "object"
         },
         "MarkupKind": {
@@ -36,6 +40,10 @@
                     "description": "Line position in a document (zero-based)."
                 }
             },
+            "required": [
+                "character",
+                "line"
+            ],
             "type": "object"
         },
         "Range": {
@@ -50,6 +58,10 @@
                     "description": "The range's start position"
                 }
             },
+            "required": [
+                "end",
+                "start"
+            ],
             "type": "object"
         },
         "uinteger": {
@@ -73,6 +85,10 @@
                             "type": "string"
                         }
                     },
+                    "required": [
+                        "language",
+                        "value"
+                    ],
                     "type": "object"
                 },
                 {
@@ -87,6 +103,10 @@
                                         "type": "string"
                                     }
                                 },
+                                "required": [
+                                    "language",
+                                    "value"
+                                ],
                                 "type": "object"
                             },
                             {
@@ -108,6 +128,9 @@
             "description": "An optional range"
         }
     },
+    "required": [
+        "contents"
+    ],
     "type": "object"
 }
 
